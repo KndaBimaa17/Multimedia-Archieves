@@ -1,1726 +1,1171 @@
 <!DOCTYPE html>
 <html lang="id" class="light">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arsip Kabinet Gemuk Prabowo</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome for Icons -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-      /* General body and container styling */
-      body {
-        font-family: "Inter", sans-serif;
-        transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
-      }
-      .container {
-        max-width: 100%;
-        margin-left: auto;
-        margin-right: auto;
-        padding: 1rem;
-      }
-      @media (min-width: 768px) {
-        .container {
-          max-width: 768px; /* md */
+        /* General body and container styling */
+        body {
+            font-family: 'Inter', sans-serif;
+            transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
         }
-      }
-      @media (min-width: 1024px) {
         .container {
-          max-width: 1024px; /* lg */
+            max-width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 1rem;
         }
-      }
+        @media (min-width: 768px) {
+            .container {
+                max-width: 768px; /* md */
+            }
+        }
+        @media (min-width: 1024px) {
+            .container {
+                max-width: 1024px; /* lg */
+            }
+        }
 
-      /* Page section transitions */
-      .page-section {
-        display: none;
-        opacity: 0;
-        transition: opacity 0.5s ease-in-out;
-      }
-      .page-section.active {
-        display: block;
-        opacity: 1;
-      }
+        /* Page section transitions */
+        .page-section {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+        .page-section.active {
+            display: block;
+            opacity: 1;
+        }
 
-      /* Dark Mode Specific Styles */
-      html.dark {
-        background-color: #1a202c; /* dark gray background */
-        color: #e2e8f0; /* light gray text */
-      }
-      html.dark .bg-gray-100 {
-        background-color: #1a202c;
-      }
-      html.dark .bg-white {
-        background-color: #2d3748; /* darker background for cards/sections */
-        color: #e2e8f0;
-      }
-      html.dark .shadow-md {
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3),
-          0 2px 4px -1px rgba(0, 0, 0, 0.18);
-      }
-      html.dark .text-gray-800 {
-        color: #e2e8f0;
-      }
-      html.dark .text-gray-900 {
-        color: #f7fafc;
-      }
-      html.dark .text-gray-600 {
-        color: #a0aec0;
-      }
-      html.dark .text-gray-700 {
-        color: #cbd5e0;
-      }
-      html.dark .border-gray-300 {
-        border-color: #4a5568;
-      }
-      html.dark input,
-      html.dark textarea,
-      html.dark select {
-        background-color: #4a5568;
-        border-color: #616e7f;
-        color: #e2e8f0;
-      }
-      html.dark input:focus,
-      html.dark textarea:focus,
-      html.dark select:focus {
-        border-color: #63b3ed;
-        box-shadow: 0 0 0 1px #63b3ed;
-      }
-      html.dark .bg-gray-200 {
-        background-color: #4a5568;
-        color: #e2e8f0;
-      }
-      html.dark .bg-gray-200:hover {
-        background-color: #616e7f;
-      }
-      html.dark .bg-blue-100 {
-        background-color: #2c5282; /* darker blue for tags */
-        color: #a0aec0;
-      }
-      html.dark .bg-blue-600 {
-        background-color: #4299e1;
-      }
-      html.dark .bg-blue-700 {
-        background-color: #3182ce;
-      }
-      html.dark .text-red-600 {
-        color: #f56565;
-      }
-      html.dark .text-yellow-500 {
-        background-color: #d69e2e;
-      }
-      html.dark .text-yellow-600 {
-        background-color: #b7791f;
-      }
-      html.dark .bg-green-600 {
-        background-color: #48bb78;
-      }
-      html.dark .bg-green-700 {
-        background-color: #38a169;
-      }
-      html.dark .bg-gray-800 {
-        background-color: #2d3748;
-      }
-      html.dark .bg-gray-600 {
-        /* for modal background */
-        background-color: rgba(0, 0, 0, 0.7);
-      }
-      html.dark .text-blue-500 {
-        color: #63b3ed;
-      }
+        /* Dark Mode Specific Styles */
+        html.dark {
+            background-color: #1a202c; /* dark gray background */
+            color: #e2e8f0; /* light gray text */
+        }
+        html.dark .bg-gray-100 {
+            background-color: #1a202c;
+        }
+        html.dark .bg-white {
+            background-color: #2d3748; /* darker background for cards/sections */
+            color: #e2e8f0;
+        }
+        html.dark .shadow-md {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.18);
+        }
+        html.dark .text-gray-800 {
+            color: #e2e8f0;
+        }
+        html.dark .text-gray-900 {
+            color: #f7fafc;
+        }
+        html.dark .text-gray-600 {
+            color: #a0aec0;
+        }
+        html.dark .text-gray-700 {
+            color: #cbd5e0;
+        }
+        html.dark .border-gray-300 {
+            border-color: #4a5568;
+        }
+        html.dark input, html.dark textarea, html.dark select {
+            background-color: #4a5568;
+            border-color: #616e7f;
+            color: #e2e8f0;
+        }
+        html.dark input:focus, html.dark textarea:focus, html.dark select:focus {
+            border-color: #63b3ed;
+            box-shadow: 0 0 0 1px #63b3ed;
+        }
+        html.dark .bg-gray-200 {
+            background-color: #4a5568;
+            color: #e2e8f0;
+        }
+        html.dark .bg-gray-200:hover {
+            background-color: #616e7f;
+        }
+        html.dark .bg-blue-100 {
+            background-color: #2c5282; /* darker blue for tags */
+            color: #a0aec0;
+        }
+        html.dark .bg-blue-600 {
+            background-color: #4299e1;
+        }
+        html.dark .bg-blue-700 {
+            background-color: #3182ce;
+        }
+        html.dark .text-red-600 {
+            color: #f56565;
+        }
+        html.dark .text-yellow-500 {
+            background-color: #d69e2e;
+        }
+        html.dark .text-yellow-600 {
+            background-color: #b7791f;
+        }
+        html.dark .bg-green-600 {
+            background-color: #48bb78;
+        }
+        html.dark .bg-green-700 {
+            background-color: #38a169;
+        }
+        html.dark .bg-gray-800 {
+            background-color: #2d3748;
+        }
+        html.dark .bg-gray-600 { /* for modal background */
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+        html.dark .text-blue-500 {
+            color: #63b3ed;
+        }
 
-      /* Toast Notification Styling */
-      #toast-container {
-        position: fixed;
-        top: 1rem;
-        right: 1rem;
-        z-index: 9999;
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-      }
-      .toast {
-        background-color: #333;
-        color: white;
-        padding: 0.75rem 1.5rem;
-        border-radius: 0.5rem;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        opacity: 0;
-        transform: translateY(-20px);
-        transition: opacity 0.3s ease-out, transform 0.3s ease-out;
-      }
-      .toast.show {
-        opacity: 1;
-        transform: translateY(0);
-      }
-      .toast.success {
-        background-color: #4caf50;
-      }
-      .toast.error {
-        background-color: #f44336;
-      }
-      .toast.info {
-        background-color: #2196f3;
-      }
+        /* Toast Notification Styling */
+        #toast-container {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .toast {
+            background-color: #333;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: translateY(-20px);
+            transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+        }
+        .toast.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .toast.success { background-color: #4CAF50; }
+        .toast.error { background-color: #f44336; }
+        .toast.info { background-color: #2196F3; }
 
-      /* Media Preview Modal */
-      #mediaPreviewModal iframe,
-      #mediaPreviewModal img {
-        max-width: 100%;
-        max-height: 80vh;
-        display: block;
-        margin: auto;
-        border-radius: 0.5rem;
-      }
+        /* Media Preview Modal */
+        #mediaPreviewModal iframe,
+        #mediaPreviewModal img {
+            max-width: 100%;
+            max-height: 80vh;
+            display: block;
+            margin: auto;
+            border-radius: 0.5rem;
+        }
     </style>
-  </head>
-  <body class="bg-gray-100 text-gray-800 flex flex-col min-h-screen">
+</head>
+<body class="bg-gray-100 text-gray-800 flex flex-col min-h-screen">
     <!-- Toast Notification Container -->
     <div id="toast-container"></div>
 
     <!-- Navbar -->
-    <nav
-      class="bg-gradient-to-r from-blue-600 to-blue-800 shadow-lg p-4 sticky top-0 z-40 rounded-b-xl"
-    >
-      <div class="container mx-auto flex justify-between items-center">
-        <a
-          href="#"
-          class="text-white text-2xl font-bold tracking-wide"
-          onclick="showPage('listPage')"
-        >
-          <span class="hidden md:inline">Arsip Isu Politik</span>
-          <span class="md:hidden">Arsip Politik</span>
-        </a>
+    <nav class="bg-gradient-to-r from-blue-600 to-blue-800 shadow-lg p-4 sticky top-0 z-40 rounded-b-xl">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="#" class="text-white text-2xl font-bold tracking-wide" onclick="showPage('listPage')">
+                <span class="hidden md:inline">Arsip Isu Politik</span>
+                <span class="md:hidden">Arsip Politik</span>
+            </a>
 
-        <!-- Dark Mode Toggle Button -->
-        <button
-          id="darkModeToggle"
-          class="text-white text-xl focus:outline-none focus:ring-2 focus:ring-white rounded-md p-2"
-        >
-          <i class="fas fa-moon" id="darkModeIcon"></i>
-        </button>
+            <!-- Dark Mode Toggle Button -->
+            <button id="darkModeToggle" class="text-white text-xl focus:outline-none focus:ring-2 focus:ring-white rounded-md p-2">
+                <i class="fas fa-moon" id="darkModeIcon"></i>
+            </button>
 
-        <!-- Mobile Menu Button -->
-        <div class="md:hidden">
-          <button
-            id="mobileMenuButton"
-            class="text-white focus:outline-none focus:ring-2 focus:ring-white rounded-md p-2"
-          >
-            <svg
-              class="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M4 6h16M4 12h16m-7 6h7"
-              ></path>
-            </svg>
-          </button>
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden">
+                <button id="mobileMenuButton" class="text-white focus:outline-none focus:ring-2 focus:ring-white rounded-md p-2">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex space-x-6 items-center">
+                <a href="#" onclick="showPage('listPage')" class="text-white hover:text-blue-200 transition duration-300 ease-in-out font-medium py-2 px-3 rounded-md hover:bg-blue-700">Daftar Arsip</a>
+                <a href="#" onclick="showPage('addPage')" class="text-white hover:text-blue-200 transition duration-300 ease-in-out font-medium py-2 px-3 rounded-md hover:bg-blue-700">Tambah Baru</a>
+                <a href="#" onclick="showPage('policyEthicsPage')" class="text-white hover:text-blue-200 transition duration-300 ease-in-out font-medium py-2 px-3 rounded-md hover:bg-blue-700">Kebijakan & Etika</a>
+                <a href="#" onclick="showPage('aboutPage')" class="text-white hover:text-blue-200 transition duration-300 ease-in-out font-medium py-2 px-3 rounded-md hover:bg-blue-700">Tentang Proyek</a>
+            </div>
         </div>
 
-        <!-- Desktop Menu -->
-        <div class="hidden md:flex space-x-6 items-center">
-          <a
-            href="#"
-            onclick="showPage('listPage')"
-            class="text-white hover:text-blue-200 transition duration-300 ease-in-out font-medium py-2 px-3 rounded-md hover:bg-blue-700"
-            >Daftar Arsip</a
-          >
-          <a
-            href="#"
-            onclick="showPage('addPage')"
-            class="text-white hover:text-blue-200 transition duration-300 ease-in-out font-medium py-2 px-3 rounded-md hover:bg-blue-700"
-            >Tambah Baru</a
-          >
-          <a
-            href="#"
-            onclick="showPage('policyEthicsPage')"
-            class="text-white hover:text-blue-200 transition duration-300 ease-in-out font-medium py-2 px-3 rounded-md hover:bg-blue-700"
-            >Kebijakan & Etika</a
-          >
-          <a
-            href="#"
-            onclick="showPage('aboutPage')"
-            class="text-white hover:text-blue-200 transition duration-300 ease-in-out font-medium py-2 px-3 rounded-md hover:bg-blue-700"
-            >Tentang Proyek</a
-          >
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobileMenu" class="md:hidden mt-4 space-y-2 hidden">
+            <a href="#" onclick="showPage('listPage'); toggleMobileMenu();" class="block text-white hover:text-blue-200 px-3 py-2 rounded-md hover:bg-blue-700 transition duration-300 ease-in-out">Daftar Arsip</a>
+            <a href="#" onclick="showPage('addPage'); toggleMobileMenu();" class="block text-white hover:text-blue-200 px-3 py-2 rounded-md hover:bg-blue-700 transition duration-300 ease-in-out">Tambah Baru</a>
+            <a href="#" onclick="showPage('policyEthicsPage'); toggleMobileMenu();" class="block text-white hover:text-blue-200 px-3 py-2 rounded-md hover:bg-blue-700 transition duration-300 ease-in-out">Kebijakan & Etika</a>
+            <a href="#" onclick="showPage('aboutPage'); toggleMobileMenu();" class="block text-white hover:text-blue-200 px-3 py-2 rounded-md hover:bg-blue-700 transition duration-300 ease-in-out">Tentang Proyek</a>
         </div>
-      </div>
-
-      <!-- Mobile Menu (Hidden by default) -->
-      <div id="mobileMenu" class="md:hidden mt-4 space-y-2 hidden">
-        <a
-          href="#"
-          onclick="showPage('listPage'); toggleMobileMenu();"
-          class="block text-white hover:text-blue-200 px-3 py-2 rounded-md hover:bg-blue-700 transition duration-300 ease-in-out"
-          >Daftar Arsip</a
-        >
-        <a
-          href="#"
-          onclick="showPage('addPage'); toggleMobileMenu();"
-          class="block text-white hover:text-blue-200 px-3 py-2 rounded-md hover:bg-blue-700 transition duration-300 ease-in-out"
-          >Tambah Baru</a
-        >
-        <a
-          href="#"
-          onclick="showPage('policyEthicsPage'); toggleMobileMenu();"
-          class="block text-white hover:text-blue-200 px-3 py-2 rounded-md hover:bg-blue-700 transition duration-300 ease-in-out"
-          >Kebijakan & Etika</a
-        >
-        <a
-          href="#"
-          onclick="showPage('aboutPage'); toggleMobileMenu();"
-          class="block text-white hover:text-blue-200 px-3 py-2 rounded-md hover:bg-blue-700 transition duration-300 ease-in-out"
-          >Tentang Proyek</a
-        >
-      </div>
     </nav>
 
     <div class="container mx-auto p-4 md:p-8 lg:p-10 flex-grow">
-      <!-- Header Utama (tampil di semua halaman) -->
-      <header class="bg-white shadow-md rounded-xl p-6 mb-8">
-        <h1
-          class="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-2"
-        >
-          Arsip Isu Politik
-        </h1>
-        <h2 class="text-xl md:text-2xl font-semibold text-center text-red-600">
-          "Kabinet Gemuk Prabowo"
-        </h2>
-        <p class="text-center text-gray-600 mt-4">
-          Koleksi dokumentasi multimedia terkait isu kabinet Prabowo.
-        </p>
-      </header>
+        <!-- Header Utama (tampil di semua halaman) -->
+        <header class="bg-white shadow-md rounded-xl p-6 mb-8">
+            <h1 class="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-2">Arsip Isu Politik</h1>
+            <h2 class="text-xl md:text-2xl font-semibold text-center text-red-600">"Kabinet Gemuk Prabowo"</h2>
+            <p class="text-center text-gray-600 mt-4">Koleksi dokumentasi multimedia terkait isu kabinet Prabowo.</p>
+        </header>
 
-      <!-- Halaman Daftar Arsip -->
-      <section
-        id="listPage"
-        class="page-section active bg-white shadow-md rounded-xl p-6"
-      >
-        <h3 class="text-2xl font-semibold text-gray-900 mb-4">Daftar Arsip</h3>
+        <!-- Halaman Daftar Arsip -->
+        <section id="listPage" class="page-section active bg-white shadow-md rounded-xl p-6">
+            <h3 class="text-2xl font-semibold text-gray-900 mb-4">Daftar Arsip</h3>
 
-        <!-- Search and Filter Section -->
-        <div class="mb-6 space-y-4 md:space-y-0 md:flex md:space-x-4">
-          <input
-            type="text"
-            id="searchKeyword"
-            placeholder="Cari berdasarkan judul, deskripsi, atau tag..."
-            class="flex-1 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-          />
-          <select
-            id="filterType"
-            class="px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-          >
-            <option value="">Semua Tipe Media</option>
-            <option value="video">Video</option>
-            <option value="audio">Audio</option>
-            <option value="photo">Foto</option>
-            <option value="text">Teks</option>
-          </select>
-          <input
-            type="date"
-            id="filterDate"
-            class="px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-          />
-          <button
-            id="resetFilters"
-            class="px-4 py-2 bg-gray-200 text-gray-800 rounded-md hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 transition-all duration-200"
-          >
-            Reset Filter
-          </button>
-        </div>
-
-        <!-- Tags Filter Section -->
-        <div id="tagsFilterContainer" class="mb-6 flex flex-wrap gap-2">
-          <span class="text-sm font-medium text-gray-700">Filter Tag:</span>
-          <!-- Tags will be rendered here -->
-        </div>
-
-        <div
-          id="archiveList"
-          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-        >
-          <!-- Arsip akan dirender di sini oleh JavaScript -->
-        </div>
-        <p id="noArchivesMessage" class="text-gray-500 text-center mt-4 hidden">
-          Belum ada arsip yang ditemukan. Coba reset filter atau tambahkan arsip
-          baru.
-        </p>
-
-        <!-- Pagination (if implemented) -->
-        <div id="pagination" class="flex justify-center mt-6 space-x-2">
-          <!-- Pagination buttons will be rendered here -->
-        </div>
-
-        <!-- Statistics Section -->
-        <div
-          class="mt-8 bg-blue-50 rounded-xl p-6 shadow-sm border border-blue-200"
-        >
-          <h4 class="text-xl font-semibold text-blue-800 mb-4">
-            Statistik Arsip
-          </h4>
-          <div
-            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 text-blue-700"
-          >
-            <div>
-              <p class="text-sm">Total Arsip:</p>
-              <p id="totalArchives" class="text-2xl font-bold"></p>
+            <!-- Search and Filter Section -->
+            <div class="mb-6 space-y-4 md:space-y-0 md:flex md:space-x-4">
+                <input type="text" id="searchKeyword" placeholder="Cari berdasarkan judul, deskripsi, atau tag..." class="flex-1 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                <select id="filterType" class="px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                    <option value="">Semua Tipe Media</option>
+                    <option value="video">Video</option>
+                    <option value="audio">Audio</option>
+                    <option value="photo">Foto</option>
+                    <option value="text">Teks</option>
+                </select>
+                <input type="date" id="filterDate" class="px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                <button id="resetFilters" class="px-4 py-2 bg-gray-200 text-gray-800 rounded-md hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 transition-all duration-200">Reset Filter</button>
             </div>
-            <div>
-              <p class="text-sm">Arsip Video:</p>
-              <p id="videoCount" class="text-2xl font-bold"></p>
+
+            <!-- Tags Filter Section -->
+            <div id="tagsFilterContainer" class="mb-6 flex flex-wrap gap-2">
+                <span class="text-sm font-medium text-gray-700 mr-2">Filter Tag:</span>
+                <!-- Tags will be rendered here -->
             </div>
-            <div>
-              <p class="text-sm">Arsip Audio:</p>
-              <p id="audioCount" class="text-2xl font-bold"></p>
+
+            <div id="archiveList" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Arsip akan dirender di sini oleh JavaScript -->
             </div>
-            <div>
-              <p class="text-sm">Arsip Foto:</p>
-              <p id="photoCount" class="text-2xl font-bold"></p>
+            <p id="noArchivesMessage" class="text-gray-500 text-center mt-4 hidden">Belum ada arsip yang ditemukan. Coba reset filter atau tambahkan arsip baru.</p>
+
+            <!-- Pagination (if implemented) -->
+            <div id="pagination" class="flex justify-center mt-6 space-x-2">
+                <!-- Pagination buttons will be rendered here -->
             </div>
-            <div>
-              <p class="text-sm">Arsip Teks:</p>
-              <p id="textCount" class="text-2xl font-bold"></p>
+
+            <!-- Statistics Section -->
+            <div class="mt-8 bg-blue-50 rounded-xl p-6 shadow-sm border border-blue-200">
+                <h4 class="text-xl font-semibold text-blue-800 mb-4">Statistik Arsip</h4>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 text-blue-700">
+                    <div>
+                        <p class="text-sm">Total Arsip:</p>
+                        <p id="totalArchives" class="text-2xl font-bold"></p>
+                    </div>
+                    <div>
+                        <p class="text-sm">Arsip Video:</p>
+                        <p id="videoCount" class="text-2xl font-bold"></p>
+                    </div>
+                    <div>
+                        <p class="text-sm">Arsip Audio:</p>
+                        <p id="audioCount" class="text-2xl font-bold"></p>
+                    </div>
+                    <div>
+                        <p class="text-sm">Arsip Foto:</p>
+                        <p id="photoCount" class="text-2xl font-bold"></p>
+                    </div>
+                    <div>
+                        <p class="text-sm">Arsip Teks:</p>
+                        <p id="textCount" class="text-2xl font-bold"></p>
+                    </div>
+                    <div>
+                        <p class="text-sm">Jumlah Tag Unik:</p>
+                        <p id="uniqueTagsCount" class="text-2xl font-bold"></p>
+                    </div>
+                </div>
             </div>
-            <div>
-              <p class="text-sm">Jumlah Tag Unik:</p>
-              <p id="uniqueTagsCount" class="text-2xl font-bold"></p>
+        </section>
+
+        <!-- Halaman Tambah Arsip -->
+        <section id="addPage" class="page-section bg-white shadow-md rounded-xl p-6">
+            <h3 class="text-2xl font-semibold text-gray-900 mb-4">Tambah Arsip Baru</h3>
+            <form id="archiveForm" class="space-y-4">
+                <div>
+                    <label for="title" class="block text-sm font-medium text-gray-700">Judul:</label>
+                    <input type="text" id="title" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                </div>
+                <div>
+                    <label for="description" class="block text-sm font-medium text-gray-700">Deskripsi:</label>
+                    <textarea id="description" rows="3" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"></textarea>
+                </div>
+                <div>
+                    <label for="type" class="block text-sm font-medium text-gray-700">Tipe Media:</label>
+                    <select id="type" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                        <option value="">Pilih Tipe</option>
+                        <option value="video">Video</option>
+                        <option value="audio">Audio</option>
+                        <option value="photo">Foto</option>
+                        <option value="text">Teks</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="source" class="block text-sm font-medium text-gray-700">Sumber (URL/Teks):</label>
+                    <input type="url" id="source" placeholder="Contoh: https://youtube.com/watch?v=xyz atau teks" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                </div>
+                <div>
+                    <label for="date" class="block text-sm font-medium text-gray-700">Tanggal:</label>
+                    <input type="date" id="date" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                </div>
+                <div>
+                    <label for="tags" class="block text-sm font-medium text-gray-700">Tag (pisahkan dengan koma):</label>
+                    <input type="text" id="tags" placeholder="Contoh: kabinet, prabowo, politik" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                </div>
+                <button type="submit" class="w-full inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-200">
+                    Tambah Arsip
+                </button>
+            </form>
+
+            <!-- Import/Export Data Section -->
+            <div class="mt-8 bg-gray-50 rounded-xl p-6 shadow-sm border border-gray-200">
+                <h4 class="text-xl font-semibold text-gray-900 mb-4">Manajemen Data</h4>
+                <div class="flex flex-col md:flex-row md:space-x-4 space-y-4 md:space-y-0">
+                    <button id="exportData" class="flex-1 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-all duration-200">
+                        <i class="fas fa-download mr-2"></i> Export Data (JSON)
+                    </button>
+                    <label for="importFile" class="flex-1 inline-flex justify-center py-2 px-4 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-800 bg-white hover:bg-gray-100 cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-200">
+                        <i class="fas fa-upload mr-2"></i> Import Data (JSON)
+                        <input type="file" id="importFile" accept=".json" class="hidden">
+                    </label>
+                </div>
             </div>
-          </div>
-        </div>
-      </section>
+        </section>
 
-      <!-- Halaman Tambah Arsip -->
-      <section
-        id="addPage"
-        class="page-section bg-white shadow-md rounded-xl p-6"
-      >
-        <h3 class="text-2xl font-semibold text-gray-900 mb-4">
-          Tambah Arsip Baru
-        </h3>
-        <form id="archiveForm" class="space-y-4">
-          <div>
-            <label for="title" class="block text-sm font-medium text-gray-700"
-              >Judul:</label
-            >
-            <input
-              type="text"
-              id="title"
-              required
-              class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-            />
-          </div>
-          <div>
-            <label
-              for="description"
-              class="block text-sm font-medium text-gray-700"
-              >Deskripsi:</label
-            >
-            <textarea
-              id="description"
-              rows="3"
-              class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-            ></textarea>
-          </div>
-          <div>
-            <label for="type" class="block text-sm font-medium text-gray-700"
-              >Tipe Media:</label
-            >
-            <select
-              id="type"
-              required
-              class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-            >
-              <option value="">Pilih Tipe</option>
-              <option value="video">Video</option>
-              <option value="audio">Audio</option>
-              <option value="photo">Foto</option>
-              <option value="text">Teks</option>
-            </select>
-          </div>
-          <div>
-            <label for="source" class="block text-sm font-medium text-gray-700"
-              >Sumber (URL/Teks):</label
-            >
-            <input
-              type="url"
-              id="source"
-              placeholder="Contoh: https://youtube.com/watch?v=xyz atau teks"
-              class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-            />
-          </div>
-          <div>
-            <label for="date" class="block text-sm font-medium text-gray-700"
-              >Tanggal:</label
-            >
-            <input
-              type="date"
-              id="date"
-              class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-            />
-          </div>
-          <div>
-            <label for="tags" class="block text-sm font-medium text-gray-700"
-              >Tag (pisahkan dengan koma):</label
-            >
-            <input
-              type="text"
-              id="tags"
-              placeholder="Contoh: kabinet, prabowo, politik"
-              class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-            />
-          </div>
-          <button
-            type="submit"
-            class="w-full inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-200"
-          >
-            Tambah Arsip
-          </button>
-        </form>
+        <!-- Halaman Kebijakan & Etika -->
+        <section id="policyEthicsPage" class="page-section bg-white shadow-md rounded-xl p-6">
+            <h3 class="text-2xl font-semibold text-gray-900 mb-4">Kebijakan dan Etika Pengelolaan Arsip</h3>
+            <div class="space-y-6 text-gray-700">
+                <p>Dokumen ini menguraikan prinsip-prinsip dan pedoman etika yang mendasari pengelolaan arsip multimedia terkait isu politik "Kabinet Gemuk Prabowo" di sistem ini. Kami berkomitmen untuk memastikan integritas, akurasi, dan aksesibilitas arsip sambil menghormati privasi dan mematuhi peraturan yang berlaku.</p>
 
-        <!-- Import/Export Data Section -->
-        <div
-          class="mt-8 bg-gray-50 rounded-xl p-6 shadow-sm border border-gray-200"
-        >
-          <h4 class="text-xl font-semibold text-gray-900 mb-4">
-            Manajemen Data
-          </h4>
-          <div
-            class="flex flex-col md:flex-row md:space-x-4 space-y-4 md:space-y-0"
-          >
-            <button
-              id="exportData"
-              class="flex-1 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-all duration-200"
-            >
-              <i class="fas fa-download mr-2"></i> Export Data (JSON)
-            </button>
-            <label
-              for="importFile"
-              class="flex-1 inline-flex justify-center py-2 px-4 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-800 bg-white hover:bg-gray-100 cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-200"
-            >
-              <i class="fas fa-upload mr-2"></i> Import Data (JSON)
-              <input
-                type="file"
-                id="importFile"
-                accept=".json"
-                class="hidden"
-              />
-            </label>
-          </div>
-        </div>
-      </section>
+                <h4 class="text-xl font-semibold text-gray-800">1. Akses dan Keterbukaan Informasi</h4>
+                <ul class="list-disc list-inside space-y-2 ml-4">
+                    <li><strong>Akses Terbatas:</strong> Beberapa arsip mungkin memiliki akses terbatas untuk melindungi informasi sensitif, privasi individu, atau sumber yang tidak ingin diungkap. Akses akan diberikan berdasarkan otorisasi dan kebutuhan yang jelas.</li>
+                    <li><strong>Akses Terbuka:</strong> Arsip yang tidak memiliki batasan sensitivitas akan tersedia secara publik untuk tujuan penelitian, analisis, dan pendidikan.</li>
+                    <li><strong>Transparansi:</strong> Kebijakan akses akan diuraikan secara transparan dan mudah diakses oleh semua pengguna.</li>
+                </ul>
 
-      <!-- Halaman Kebijakan & Etika -->
-      <section
-        id="policyEthicsPage"
-        class="page-section bg-white shadow-md rounded-xl p-6"
-      >
-        <h3 class="text-2xl font-semibold text-gray-900 mb-4">
-          Kebijakan dan Etika Pengelolaan Arsip
-        </h3>
-        <div class="space-y-6 text-gray-700">
-          <p>
-            Dokumen ini menguraikan prinsip-prinsip dan pedoman etika yang
-            mendasari pengelolaan arsip multimedia terkait isu politik "Kabinet
-            Gemuk Prabowo" di sistem ini. Kami berkomitmen untuk memastikan
-            integritas, akurasi, dan aksesibilitas arsip sambil menghormati
-            privasi dan mematuhi peraturan yang berlaku.
-          </p>
+                <h4 class="text-xl font-semibold text-gray-800">2. Privasi dan Perlindungan Data</h4>
+                <ul class="list-disc list-inside space-y-2 ml-4">
+                    <li><strong>Anonimitas:</strong> Jika memungkinkan, informasi pribadi yang dapat mengidentifikasi individu akan dianonimkan atau disamarkan, terutama dalam konteks demonstrasi atau peristiwa sensitif.</li>
+                    <li><strong>Persetujuan:</strong> Pengumpulan arsip yang melibatkan individu akan berusaha memperoleh persetujuan yang relevan jika diperlukan dan memungkinkan.</li>
+                    <li><strong>Keamanan Data:</strong> Upaya maksimal dilakukan untuk melindungi data arsip dari akses tidak sah, kerusakan, atau kehilangan. Meskipun disimpan di Local Storage, pengguna diharapkan memahami batasan keamanannya.</li>
+                </ul>
 
-          <h4 class="text-xl font-semibold text-gray-800">
-            1. Akses dan Keterbukaan Informasi
-          </h4>
-          <ul class="list-disc list-inside space-y-2 ml-4">
-            <li>
-              <strong>Akses Terbatas:</strong> Beberapa arsip mungkin memiliki
-              akses terbatas untuk melindungi informasi sensitif, privasi
-              individu, atau sumber yang tidak ingin diungkap. Akses akan
-              diberikan berdasarkan otorisasi dan kebutuhan yang jelas.
-            </li>
-            <li>
-              <strong>Akses Terbuka:</strong> Arsip yang tidak memiliki batasan
-              sensitivitas akan tersedia secara publik untuk tujuan penelitian,
-              analisis, dan pendidikan.
-            </li>
-            <li>
-              <strong>Transparansi:</strong> Kebijakan akses akan diuraikan
-              secara transparan dan mudah diakses oleh semua pengguna.
-            </li>
-          </ul>
+                <h4 class="text-xl font-semibold text-gray-800">3. Akurasi dan Integritas</h4>
+                <ul class="list-disc list-inside space-y-2 ml-4">
+                    <li><strong>Verifikasi Sumber:</strong> Sedapat mungkin, sumber arsip akan diverifikasi untuk memastikan akurasi informasi yang terkandung di dalamnya.</li>
+                    <li><strong>Metadata Komprehensif:</strong> Setiap arsip akan dilengkapi dengan metadata yang lengkap dan akurat untuk memfasilitasi penemuan dan pemahaman konteks.</li>
+                    <li><strong>Tidak Ada Manipulasi:</strong> Arsip tidak akan dimanipulasi atau diubah dari bentuk aslinya, kecuali untuk format teknis yang diperlukan tanpa mengubah substansi.</li>
+                </ul>
 
-          <h4 class="text-xl font-semibold text-gray-800">
-            2. Privasi dan Perlindungan Data
-          </h4>
-          <ul class="list-disc list-inside space-y-2 ml-4">
-            <li>
-              <strong>Anonimitas:</strong> Jika memungkinkan, informasi pribadi
-              yang dapat mengidentifikasi individu akan dianonimkan atau
-              disamarkan, terutama dalam konteks demonstrasi atau peristiwa
-              sensitif.
-            </li>
-            <li>
-              <strong>Persetujuan:</strong> Pengumpulan arsip yang melibatkan
-              individu akan berusaha memperoleh persetujuan yang relevan jika
-              diperlukan dan memungkinkan.
-            </li>
-            <li>
-              <strong>Keamanan Data:</strong> Upaya maksimal dilakukan untuk
-              melindungi data arsip dari akses tidak sah, kerusakan, atau
-              kehilangan. Meskipun disimpan di Local Storage, pengguna
-              diharapkan memahami batasan keamanannya.
-            </li>
-          </ul>
+                <h4 class="text-xl font-semibold text-gray-800">4. Lisensi dan Penggunaan</h4>
+                <ul class="list-disc list-inside space-y-2 ml-4">
+                    <li><strong>Kepatuhan Lisensi:</strong> Penggunaan arsip dari sumber eksternal akan mematuhi lisensi atau ketentuan penggunaan yang ditetapkan oleh pemilik hak cipta asli.</li>
+                    <li><strong>Pencantuman Sumber:</strong> Setiap arsip akan mencantumkan sumber aslinya sebagai bentuk penghargaan dan untuk memungkinkan verifikasi lebih lanjut.</li>
+                </ul>
 
-          <h4 class="text-xl font-semibold text-gray-800">
-            3. Akurasi dan Integritas
-          </h4>
-          <ul class="list-disc list-inside space-y-2 ml-4">
-            <li>
-              <strong>Verifikasi Sumber:</strong> Sedapat mungkin, sumber arsip
-              akan diverifikasi untuk memastikan akurasi informasi yang
-              terkandung di dalamnya.
-            </li>
-            <li>
-              <strong>Metadata Komprehensif:</strong> Setiap arsip akan
-              dilengkapi dengan metadata yang lengkap dan akurat untuk
-              memfasilitasi penemuan dan pemahaman konteks.
-            </li>
-            <li>
-              <strong>Tidak Ada Manipulasi:</strong> Arsip tidak akan
-              dimanipulasi atau diubah dari bentuk aslinya, kecuali untuk format
-              teknis yang diperlukan tanpa mengubah substansi.
-            </li>
-          </ul>
+                <p class="mt-6 text-sm text-gray-600 italic">
+                    Catatan: Dokumen kebijakan ini adalah contoh prototipe dan dapat disempurnakan sesuai dengan kebutuhan proyek yang lebih kompleks dan peraturan hukum yang berlaku.
+                </p>
+            </div>
+        </section>
 
-          <h4 class="text-xl font-semibold text-gray-800">
-            4. Lisensi dan Penggunaan
-          </h4>
-          <ul class="list-disc list-inside space-y-2 ml-4">
-            <li>
-              <strong>Kepatuhan Lisensi:</strong> Penggunaan arsip dari sumber
-              eksternal akan mematuhi lisensi atau ketentuan penggunaan yang
-              ditetapkan oleh pemilik hak cipta asli.
-            </li>
-            <li>
-              <strong>Pencantuman Sumber:</strong> Setiap arsip akan
-              mencantumkan sumber aslinya sebagai bentuk penghargaan dan untuk
-              memungkinkan verifikasi lebih lanjut.
-            </li>
-          </ul>
+        <!-- Halaman Tentang Proyek -->
+        <section id="aboutPage" class="page-section bg-white shadow-md rounded-xl p-6">
+            <h3 class="text-2xl font-semibold text-gray-900 mb-4">Tentang Proyek ini</h3>
+            <div class="space-y-6 text-gray-700">
+                <p>Proyek "Arsip Isu Politik: Kabinet Gemuk Prabowo" ini adalah prototipe sistem manajemen arsip multimedia yang dirancang untuk mendokumentasikan dan mengelola berbagai informasi terkait isu politik lokal, dengan fokus khusus pada wacana seputar "Kabinet Gemuk Prabowo".</p>
 
-          <p class="mt-6 text-sm text-gray-600 italic">
-            Catatan: Dokumen kebijakan ini adalah contoh prototipe dan dapat
-            disempurnakan sesuai dengan kebutuhan proyek yang lebih kompleks dan
-            peraturan hukum yang berlaku.
-          </p>
-        </div>
-      </section>
+                <h4 class="text-xl font-semibold text-gray-800">Tujuan Proyek</h4>
+                <ul class="list-disc list-inside space-y-2 ml-4">
+                    <li>Mengembangkan prototipe sistem pengarsipan multimedia yang responsif terhadap kebutuhan dokumentasi isu politik aktual.</li>
+                    <li>Menerapkan prinsip keterbukaan informasi dan privasi dalam konteks data politik.</li>
+                    <li>Membuat kerangka kerja kebijakan internal pengelolaan dan akses arsip.</li>
+                    <li>Memahami kompleksitas pengelolaan arsip sensitif atau berbasis komunitas.</li>
+                </ul>
 
-      <!-- Halaman Tentang Proyek -->
-      <section
-        id="aboutPage"
-        class="page-section bg-white shadow-md rounded-xl p-6"
-      >
-        <h3 class="text-2xl font-semibold text-gray-900 mb-4">
-          Tentang Proyek ini
-        </h3>
-        <div class="space-y-6 text-gray-700">
-          <p>
-            Proyek "Arsip Isu Politik: Kabinet Gemuk Prabowo" ini adalah
-            prototipe sistem manajemen arsip multimedia yang dirancang untuk
-            mendokumentasikan dan mengelola berbagai informasi terkait isu
-            politik lokal, dengan fokus khusus pada wacana seputar "Kabinet
-            Gemuk Prabowo".
-          </p>
+                <h4 class="text-xl font-semibold text-gray-800">Metodologi & Teknologi</h4>
+                <p>Sistem ini dibangun sebagai aplikasi web sederhana menggunakan standar teknologi web:</p>
+                <ul class="list-disc list-inside space-y-2 ml-4">
+                    <li><strong>HTML5:</strong> Struktur dasar dan konten halaman.</li>
+                    <li><strong>Tailwind CSS:</strong> Kerangka kerja CSS untuk desain responsif, modern, dan minimalis.</li>
+                    <li><strong>JavaScript (Vanilla JS):</strong> Implementasi seluruh logika aplikasi, termasuk CRUD, manajemen state, interaksi UI, dan simulasi multi-halaman.</li>
+                    <li><strong>Local Storage:</strong> Digunakan sebagai metode penyimpanan data persisten, memungkinkan data tetap ada meskipun browser ditutup. Ini mendukung deployment di lingkungan statis seperti GitHub Pages.</li>
+                    <li><strong>Font Awesome:</strong> Digunakan untuk ikon-ikon yang lebih menarik secara visual.</li>
+                </ul>
 
-          <h4 class="text-xl font-semibold text-gray-800">Tujuan Proyek</h4>
-          <ul class="list-disc list-inside space-y-2 ml-4">
-            <li>
-              Mengembangkan prototipe sistem pengarsipan multimedia berbasis
-              kebutuhan riil.
-            </li>
-            <li>
-              Menerapkan prinsip keterbukaan informasi dan privasi dalam konteks
-              data politik.
-            </li>
-            <li>
-              Membuat kerangka kerja kebijakan internal pengelolaan dan akses
-              arsip.
-            </li>
-            <li>
-              Memahami kompleksitas pengelolaan arsip sensitif atau berbasis
-              komunitas.
-            </li>
-          </ul>
+                <h4 class="text-xl font-semibold text-gray-800">Manfaat & Nilai</h4>
+                <p>Prototipe ini diharapkan dapat menjadi fondasi untuk sistem arsip yang lebih besar, menyediakan cara terstruktur untuk:</p>
+                <ul class="list-disc list-inside space-y-2 ml-4">
+                    <li>Mengumpulkan dan mengkatalogisasi data multimedia tentang isu politik.</li>
+                    <li>Memfasilitasi penelitian dan analisis terhadap peristiwa politik.</li>
+                    <li>Menyediakan platform dasar untuk diskusi dan pemahaman publik tentang isu-isu sensitif dengan pendekatan terarsip.</li>
+                </ul>
 
-          <h4 class="text-xl font-semibold text-gray-800">
-            Metodologi & Teknologi
-          </h4>
-          <p>
-            Sistem ini dibangun sebagai aplikasi web sederhana menggunakan
-            standar teknologi web:
-          </p>
-          <ul class="list-disc list-inside space-y-2 ml-4">
-            <li><strong>HTML5:</strong> Struktur dasar dan konten halaman.</li>
-            <li>
-              <strong>Tailwind CSS:</strong> Kerangka kerja CSS untuk desain
-              responsif, modern, dan minimalis.
-            </li>
-            <li>
-              <strong>JavaScript (Vanilla JS):</strong> Implementasi seluruh
-              logika aplikasi, termasuk CRUD, manajemen state, interaksi UI, dan
-              simulasi multi-halaman.
-            </li>
-            <li>
-              <strong>Local Storage:</strong> Digunakan sebagai metode
-              penyimpanan data persisten, memungkinkan data tetap ada meskipun
-              browser ditutup. Ini mendukung deployment di lingkungan statis
-              seperti GitHub Pages.
-            </li>
-            <li>
-              <strong>Font Awesome:</strong> Digunakan untuk ikon-ikon yang
-              lebih menarik secara visual.
-            </li>
-          </ul>
-
-          <h4 class="text-xl font-semibold text-gray-800">Manfaat & Nilai</h4>
-          <p>
-            Prototipe ini diharapkan dapat menjadi fondasi untuk sistem arsip
-            yang lebih besar, menyediakan cara terstruktur untuk:
-          </p>
-          <ul class="list-disc list-inside space-y-2 ml-4">
-            <li>
-              Mengumpulkan dan mengkatalogisasi data multimedia tentang isu
-              politik.
-            </li>
-            <li>
-              Memfasilitasi penelitian dan analisis terhadap peristiwa politik.
-            </li>
-            <li>
-              Menyediakan platform dasar untuk diskusi dan pemahaman publik
-              tentang isu-isu sensitif dengan pendekatan terarsip.
-            </li>
-          </ul>
-
-          <h4 class="text-xl font-semibold text-gray-800">Batasan Proyek</h4>
-          <ul class="list-disc list-inside space-y-2 ml-4">
-            <li>
-              Penyimpanan data hanya di Local Storage, yang berarti data
-              bersifat lokal untuk setiap browser dan tidak bersifat
-              multi-pengguna atau terpusat.
-            </li>
-            <li>
-              Tidak ada otentikasi pengguna atau sistem hak akses yang kompleks.
-            </li>
-            <li>
-              Tidak ada backend server yang terlibat, membatasi fungsionalitas
-              yang membutuhkan pemrosesan sisi server atau database terpusat.
-            </li>
-            <li>
-              Fungsionalitas "upload file" ke sistem tidak diimplementasikan
-              (hanya menyimpan URL/teks sumber).
-            </li>
-          </ul>
-        </div>
-      </section>
+                <h4 class="text-xl font-semibold text-gray-800">Batasan Proyek</h4>
+                <ul class="list-disc list-inside space-y-2 ml-4">
+                    <li>Penyimpanan data hanya di Local Storage, yang berarti data bersifat lokal untuk setiap browser dan tidak bersifat multi-pengguna atau terpusat.</li>
+                    <li>Tidak ada otentikasi pengguna atau sistem hak akses yang kompleks.</li>
+                    <li>Tidak ada backend server yang terlibat, membatasi fungsionalitas yang membutuhkan pemrosesan sisi server atau database terpusat.</li>
+                    <li>Fungsionalitas "upload file" ke sistem tidak diimplementasikan (hanya menyimpan URL/teks sumber).</li>
+                </ul>
+            </div>
+        </section>
     </div>
 
     <!-- Modal Konfirmasi Hapus -->
-    <div
-      id="deleteConfirmationModal"
-      class="fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center hidden z-50"
-    >
-      <div class="bg-white rounded-lg p-6 shadow-xl max-w-sm w-full mx-4">
-        <h4 class="text-lg font-bold mb-4 text-gray-900">Konfirmasi Hapus</h4>
-        <p class="text-gray-700 mb-6">
-          Apakah Anda yakin ingin menghapus arsip ini?
-        </p>
-        <div class="flex justify-end space-x-3">
-          <button
-            id="cancelDelete"
-            class="px-4 py-2 bg-gray-200 text-gray-800 rounded-md hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 transition-all duration-200"
-          >
-            Batal
-          </button>
-          <button
-            id="confirmDelete"
-            class="px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition-all duration-200"
-          >
-            Hapus
-          </button>
+    <div id="deleteConfirmationModal" class="fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center hidden z-50">
+        <div class="bg-white rounded-lg p-6 shadow-xl max-w-sm w-full mx-4">
+            <h4 class="text-lg font-bold mb-4 text-gray-900">Konfirmasi Hapus</h4>
+            <p class="text-gray-700 mb-6">Apakah Anda yakin ingin menghapus arsip ini?</p>
+            <div class="flex justify-end space-x-3">
+                <button id="cancelDelete" class="px-4 py-2 bg-gray-200 text-gray-800 rounded-md hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 transition-all duration-200">Batal</button>
+                <button id="confirmDelete" class="px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition-all duration-200">Hapus</button>
+            </div>
         </div>
-      </div>
     </div>
 
     <!-- Modal Edit Arsip -->
-    <div
-      id="editArchiveModal"
-      class="fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center hidden z-50"
-    >
-      <div class="bg-white rounded-lg p-6 shadow-xl max-w-lg w-full mx-4">
-        <h4 class="text-lg font-bold mb-4 text-gray-900">Edit Arsip</h4>
-        <form id="editArchiveForm" class="space-y-4">
-          <input type="hidden" id="editId" />
-          <div>
-            <label
-              for="editTitle"
-              class="block text-sm font-medium text-gray-700"
-              >Judul:</label
-            >
-            <input
-              type="text"
-              id="editTitle"
-              required
-              class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-            />
-          </div>
-          <div>
-            <label
-              for="editDescription"
-              class="block text-sm font-medium text-gray-700"
-              >Deskripsi:</label
-            >
-            <textarea
-              id="editDescription"
-              rows="3"
-              class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-            ></textarea>
-          </div>
-          <div>
-            <label
-              for="editType"
-              class="block text-sm font-medium text-gray-700"
-              >Tipe Media:</label
-            >
-            <select
-              id="editType"
-              required
-              class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-            >
-              <option value="video">Video</option>
-              <option value="audio">Audio</option>
-              <option value="photo">Foto</option>
-              <option value="text">Teks</option>
-            </select>
-          </div>
-          <div>
-            <label
-              for="editSource"
-              class="block text-sm font-medium text-gray-700"
-              >Sumber (URL/Teks):</label
-            >
-            <input
-              type="url"
-              id="editSource"
-              class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-            />
-          </div>
-          <div>
-            <label
-              for="editDate"
-              class="block text-sm font-medium text-gray-700"
-              >Tanggal:</label
-            >
-            <input
-              type="date"
-              id="editDate"
-              class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-            />
-          </div>
-          <div>
-            <label
-              for="editTags"
-              class="block text-sm font-medium text-gray-700"
-              >Tag (pisahkan dengan koma):</label
-            >
-            <input
-              type="text"
-              id="editTags"
-              class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-            />
-          </div>
-          <div class="flex justify-end space-x-3 mt-6">
-            <button
-              type="button"
-              id="cancelEdit"
-              class="px-4 py-2 bg-gray-200 text-gray-800 rounded-md hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 transition-all duration-200"
-            >
-              Batal
-            </button>
-            <button
-              type="submit"
-              class="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-all duration-200"
-            >
-              Simpan Perubahan
-            </button>
-          </div>
-        </form>
-      </div>
+    <div id="editArchiveModal" class="fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center hidden z-50">
+        <div class="bg-white rounded-lg p-6 shadow-xl max-w-lg w-full mx-4">
+            <h4 class="text-lg font-bold mb-4 text-gray-900">Edit Arsip</h4>
+            <form id="editArchiveForm" class="space-y-4">
+                <input type="hidden" id="editId">
+                <div>
+                    <label for="editTitle" class="block text-sm font-medium text-gray-700">Judul:</label>
+                    <input type="text" id="editTitle" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                </div>
+                <div>
+                    <label for="editDescription" class="block text-sm font-medium text-gray-700">Deskripsi:</label>
+                    <textarea id="editDescription" rows="3" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"></textarea>
+                </div>
+                <div>
+                    <label for="editType" class="block text-sm font-medium text-gray-700">Tipe Media:</label>
+                    <select id="editType" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                        <option value="video">Video</option>
+                        <option value="audio">Audio</option>
+                        <option value="photo">Foto</option>
+                        <option value="text">Teks</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="editSource" class="block text-sm font-medium text-gray-700">Sumber (URL/Teks):</label>
+                    <input type="url" id="editSource" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                </div>
+                <div>
+                    <label for="editDate" class="block text-sm font-medium text-gray-700">Tanggal:</label>
+                    <input type="date" id="editDate" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                </div>
+                <div>
+                    <label for="editTags" class="block text-sm font-medium text-gray-700">Tag (pisahkan dengan koma):</label>
+                    <input type="text" id="editTags" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                </div>
+                <div class="flex justify-end space-x-3 mt-6">
+                    <button type="button" id="cancelEdit" class="px-4 py-2 bg-gray-200 text-gray-800 rounded-md hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 transition-all duration-200">Batal</button>
+                    <button type="submit" class="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-all duration-200">Simpan Perubahan</button>
+                </div>
+            </form>
+        </div>
     </div>
 
     <!-- Media Preview Modal -->
-    <div
-      id="mediaPreviewModal"
-      class="fixed inset-0 bg-gray-600 bg-opacity-75 flex items-center justify-center hidden z-50"
-    >
-      <div
-        class="bg-white rounded-lg p-4 shadow-xl max-w-4xl w-full mx-4 relative"
-      >
-        <button
-          id="closeMediaPreview"
-          class="absolute top-2 right-2 text-gray-500 hover:text-gray-800 text-2xl font-bold focus:outline-none"
-        >
-          &times;
-        </button>
-        <div id="mediaContent" class="mt-4 flex justify-center items-center">
-          <!-- Media content will be loaded here -->
+    <div id="mediaPreviewModal" class="fixed inset-0 bg-gray-600 bg-opacity-75 flex items-center justify-center hidden z-50">
+        <div class="bg-white rounded-lg p-4 shadow-xl max-w-4xl w-full mx-4 relative">
+            <button id="closeMediaPreview" class="absolute top-2 right-2 text-gray-500 hover:text-gray-800 text-2xl font-bold focus:outline-none">
+                &times;
+            </button>
+            <div id="mediaContent" class="mt-4 flex justify-center items-center">
+                <!-- Media content will be loaded here -->
+            </div>
+            <p id="mediaSourceText" class="text-center text-sm text-gray-600 mt-2 break-words"></p>
         </div>
-        <p
-          id="mediaSourceText"
-          class="text-center text-sm text-gray-600 mt-2 break-words"
-        ></p>
-      </div>
     </div>
 
+
     <footer class="bg-gray-800 text-white text-center p-4 mt-8 rounded-t-xl">
-      <p>&copy; 2024 Arsip Isu Politik. Dibuat dengan Tailwind CSS.</p>
+        <p>&copy; 2024 Arsip Isu Politik. Dibuat dengan Tailwind CSS.</p>
     </footer>
 
     <script>
-      const ARCHIVE_KEY = "politicalArchives"; // Key for Local Storage
-      let archives = []; // Array to store archive data
-      let filteredArchives = []; // Array for filtered results
-      let currentFilters = {
-        keyword: "",
-        type: "",
-        date: "",
-        tags: [],
-      };
+        const ARCHIVE_KEY = 'politicalArchives'; // Key for Local Storage
+        let archives = []; // Array to store archive data
+        let filteredArchives = []; // Array for filtered results
+        let currentFilters = {
+            keyword: '',
+            type: '',
+            date: '',
+            tags: []
+        };
 
-      // Get DOM elements
-      const archiveForm = document.getElementById("archiveForm");
-      const archiveList = document.getElementById("archiveList");
-      const noArchivesMessage = document.getElementById("noArchivesMessage");
+        // Get DOM elements
+        const archiveForm = document.getElementById('archiveForm');
+        const archiveList = document.getElementById('archiveList');
+        const noArchivesMessage = document.getElementById('noArchivesMessage');
 
-      const deleteConfirmationModal = document.getElementById(
-        "deleteConfirmationModal"
-      );
-      const cancelDeleteButton = document.getElementById("cancelDelete");
-      const confirmDeleteButton = document.getElementById("confirmDelete");
-      let archiveToDeleteId = null; // Stores the ID of the archive to be deleted
+        const deleteConfirmationModal = document.getElementById('deleteConfirmationModal');
+        const cancelDeleteButton = document.getElementById('cancelDelete');
+        const confirmDeleteButton = document.getElementById('confirmDelete');
+        let archiveToDeleteId = null; // Stores the ID of the archive to be deleted
 
-      const editArchiveModal = document.getElementById("editArchiveModal");
-      const editArchiveForm = document.getElementById("editArchiveForm");
-      const cancelEditButton = document.getElementById("cancelEdit");
+        const editArchiveModal = document.getElementById('editArchiveModal');
+        const editArchiveForm = document.getElementById('editArchiveForm');
+        const cancelEditButton = document.getElementById('cancelEdit');
 
-      const mediaPreviewModal = document.getElementById("mediaPreviewModal");
-      const mediaContent = document.getElementById("mediaContent");
-      const mediaSourceText = document.getElementById("mediaSourceText");
-      const closeMediaPreviewButton =
-        document.getElementById("closeMediaPreview");
+        const mediaPreviewModal = document.getElementById('mediaPreviewModal');
+        const mediaContent = document.getElementById('mediaContent');
+        const mediaSourceText = document.getElementById('mediaSourceText');
+        const closeMediaPreviewButton = document.getElementById('closeMediaPreview');
 
-      const mobileMenuButton = document.getElementById("mobileMenuButton");
-      const mobileMenu = document.getElementById("mobileMenu");
-      const darkModeToggle = document.getElementById("darkModeToggle");
-      const darkModeIcon = document.getElementById("darkModeIcon");
+        const mobileMenuButton = document.getElementById('mobileMenuButton');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const darkModeIcon = document.getElementById('darkModeIcon');
 
-      // Search and Filter elements
-      const searchKeyword = document.getElementById("searchKeyword");
-      const filterType = document.getElementById("filterType");
-      const filterDate = document.getElementById("filterDate");
-      const tagsFilterContainer = document.getElementById(
-        "tagsFilterContainer"
-      );
-      const resetFiltersButton = document.getElementById("resetFilters");
+        // Search and Filter elements
+        const searchKeyword = document.getElementById('searchKeyword');
+        const filterType = document.getElementById('filterType');
+        const filterDate = document.getElementById('filterDate');
+        const tagsFilterContainer = document.getElementById('tagsFilterContainer');
+        const resetFiltersButton = document.getElementById('resetFilters');
 
-      // Import/Export elements
-      const exportDataButton = document.getElementById("exportData");
-      const importFileButton = document.getElementById("importFile");
+        // Import/Export elements
+        const exportDataButton = document.getElementById('exportData');
+        const importFileButton = document.getElementById('importFile');
 
-      // Statistics elements
-      const totalArchives = document.getElementById("totalArchives");
-      const videoCount = document.getElementById("videoCount");
-      const audioCount = document.getElementById("audioCount");
-      const photoCount = document.getElementById("photoCount");
-      const textCount = document.getElementById("textCount");
-      const uniqueTagsCount = document.getElementById("uniqueTagsCount");
+        // Statistics elements
+        const totalArchives = document.getElementById('totalArchives');
+        const videoCount = document.getElementById('videoCount');
+        const audioCount = document.getElementById('audioCount');
+        const photoCount = document.getElementById('photoCount');
+        const textCount = document.getElementById('textCount');
+        const uniqueTagsCount = document.getElementById('uniqueTagsCount');
 
-      // --- Utility Functions ---
+        // --- Utility Functions ---
 
-      /**
-       * Shows a toast notification.
-       * @param {string} message - The message to display.
-       * @param {string} type - Type of toast (success, error, info).
-       */
-      function showToast(message, type = "info") {
-        const toastContainer = document.getElementById("toast-container");
-        const toast = document.createElement("div");
-        toast.className = `toast ${type}`;
-        toast.textContent = message;
-        toastContainer.appendChild(toast);
+        /**
+         * Shows a toast notification.
+         * @param {string} message - The message to display.
+         * @param {string} type - Type of toast (success, error, info).
+         */
+        function showToast(message, type = 'info') {
+            const toastContainer = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            toast.className = `toast ${type}`;
+            toast.textContent = message;
+            toastContainer.appendChild(toast);
 
-        setTimeout(() => {
-          toast.classList.add("show");
-        }, 50); // Small delay for CSS transition
+            setTimeout(() => {
+                toast.classList.add('show');
+            }, 50); // Small delay for CSS transition
 
-        setTimeout(() => {
-          toast.classList.remove("show");
-          toast.addEventListener("transitionend", () => toast.remove());
-        }, 3000); // Hide after 3 seconds
-      }
-
-      /**
-       * Gets the appropriate Font Awesome icon based on media type.
-       * @param {string} type - The media type (video, audio, photo, text).
-       * @returns {string} HTML string for the icon.
-       */
-      function getMediaTypeIcon(type) {
-        switch (type) {
-          case "video":
-            return '<i class="fas fa-video text-red-500"></i>';
-          case "audio":
-            return '<i class="fas fa-volume-up text-purple-500"></i>';
-          case "photo":
-            return '<i class="fas fa-image text-green-500"></i>';
-          case "text":
-            return '<i class="fas fa-file-alt text-blue-500"></i>';
-          default:
-            return '<i class="fas fa-question-circle text-gray-500"></i>';
-        }
-      }
-
-      /**
-       * Toggles the mobile menu visibility.
-       */
-      function toggleMobileMenu() {
-        mobileMenu.classList.toggle("hidden");
-      }
-
-      /**
-       * Shows a specific page section and hides others.
-       * @param {string} pageId - The ID of the page section to show.
-       */
-      function showPage(pageId) {
-        document.querySelectorAll(".page-section").forEach((section) => {
-          section.classList.remove("active");
-        });
-        document.getElementById(pageId).classList.add("active");
-        // Re-render archives and update stats if going to listPage
-        if (pageId === "listPage") {
-          applyFilters();
-          updateStatistics();
-        }
-      }
-
-      /**
-       * Saves archives data to Local Storage.
-       */
-      function saveArchives() {
-        localStorage.setItem(ARCHIVE_KEY, JSON.stringify(archives));
-      }
-
-      /**
-       * Gets archives data from Local Storage.
-       * @returns {Array} Array of archive objects.
-       */
-      function getArchives() {
-        const storedArchives = localStorage.getItem(ARCHIVE_KEY);
-        return storedArchives ? JSON.parse(storedArchives) : [];
-      }
-
-      // --- Dark Mode Logic ---
-
-      /**
-       * Applies the saved dark mode preference or defaults to system preference.
-       */
-      function applyDarkModePreference() {
-        const savedMode = localStorage.getItem("darkMode");
-        if (savedMode === "dark") {
-          document.documentElement.classList.add("dark");
-          darkModeIcon.classList.replace("fa-moon", "fa-sun");
-        } else if (savedMode === "light") {
-          document.documentElement.classList.remove("dark");
-          darkModeIcon.classList.replace("fa-sun", "fa-moon");
-        } else {
-          // Default to system preference
-          if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-            document.documentElement.classList.add("dark");
-            darkModeIcon.classList.replace("fa-moon", "fa-sun");
-          }
-        }
-      }
-
-      /**
-       * Toggles dark mode on/off and saves preference.
-       */
-      function toggleDarkMode() {
-        if (document.documentElement.classList.contains("dark")) {
-          document.documentElement.classList.remove("dark");
-          localStorage.setItem("darkMode", "light");
-          darkModeIcon.classList.replace("fa-sun", "fa-moon");
-        } else {
-          document.documentElement.classList.add("dark");
-          localStorage.setItem("darkMode", "dark");
-          darkModeIcon.classList.replace("fa-moon", "fa-sun");
-        }
-      }
-
-      // --- Archive Rendering and Management ---
-
-      /**
-       * Renders the current filtered archives to the DOM.
-       */
-      function renderArchives() {
-        archiveList.innerHTML = ""; // Clear archive list
-
-        if (filteredArchives.length === 0) {
-          noArchivesMessage.classList.remove("hidden");
-          return;
-        } else {
-          noArchivesMessage.classList.add("hidden");
+            setTimeout(() => {
+                toast.classList.remove('show');
+                toast.addEventListener('transitionend', () => toast.remove());
+            }, 3000); // Hide after 3 seconds
         }
 
-        filteredArchives.forEach((archive) => {
-          const archiveCard = document.createElement("div");
-          archiveCard.className =
-            "bg-white rounded-lg shadow-md p-6 flex flex-col justify-between border border-gray-200 hover:shadow-lg transition-shadow duration-300";
-          archiveCard.innerHTML = `
+        /**
+         * Gets the appropriate Font Awesome icon based on media type.
+         * @param {string} type - The media type (video, audio, photo, text).
+         * @returns {string} HTML string for the icon.
+         */
+        function getMediaTypeIcon(type) {
+            switch (type) {
+                case 'video': return '<i class="fas fa-video text-red-500"></i>';
+                case 'audio': return '<i class="fas fa-volume-up text-purple-500"></i>';
+                case 'photo': return '<i class="fas fa-image text-green-500"></i>';
+                case 'text': return '<i class="fas fa-file-alt text-blue-500"></i>';
+                default: return '<i class="fas fa-question-circle text-gray-500"></i>';
+            }
+        }
+
+        /**
+         * Toggles the mobile menu visibility.
+         */
+        function toggleMobileMenu() {
+            mobileMenu.classList.toggle('hidden');
+        }
+
+        /**
+         * Shows a specific page section and hides others.
+         * @param {string} pageId - The ID of the page section to show.
+         */
+        function showPage(pageId) {
+            document.querySelectorAll('.page-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(pageId).classList.add('active');
+            // Re-render archives and update stats if going to listPage
+            if (pageId === 'listPage') {
+                applyFilters();
+                updateStatistics();
+            }
+        }
+
+        /**
+         * Saves archives data to Local Storage.
+         */
+        function saveArchives() {
+            localStorage.setItem(ARCHIVE_KEY, JSON.stringify(archives));
+        }
+
+        /**
+         * Gets archives data from Local Storage.
+         * @returns {Array} Array of archive objects.
+         */
+        function getArchives() {
+            const storedArchives = localStorage.getItem(ARCHIVE_KEY);
+            return storedArchives ? JSON.parse(storedArchives) : [];
+        }
+
+        // --- Dark Mode Logic ---
+
+        /**
+         * Applies the saved dark mode preference or defaults to system preference.
+         */
+        function applyDarkModePreference() {
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'dark') {
+                document.documentElement.classList.add('dark');
+                darkModeIcon.classList.replace('fa-moon', 'fa-sun');
+            } else if (savedMode === 'light') {
+                document.documentElement.classList.remove('dark');
+                darkModeIcon.classList.replace('fa-sun', 'fa-moon');
+            } else { // Default to system preference
+                if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                    document.documentElement.classList.add('dark');
+                    darkModeIcon.classList.replace('fa-moon', 'fa-sun');
+                }
+            }
+        }
+
+        /**
+         * Toggles dark mode on/off and saves preference.
+         */
+        function toggleDarkMode() {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('darkMode', 'light');
+                darkModeIcon.classList.replace('fa-sun', 'fa-moon');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('darkMode', 'dark');
+                darkModeIcon.classList.replace('fa-moon', 'fa-sun');
+            }
+        }
+
+        // --- Archive Rendering and Management ---
+
+        /**
+         * Renders the current filtered archives to the DOM.
+         */
+        function renderArchives() {
+            archiveList.innerHTML = ''; // Clear archive list
+
+            if (filteredArchives.length === 0) {
+                noArchivesMessage.classList.remove('hidden');
+                return;
+            } else {
+                noArchivesMessage.classList.add('hidden');
+            }
+
+            filteredArchives.forEach(archive => {
+                const archiveCard = document.createElement('div');
+                archiveCard.className = 'bg-white rounded-lg shadow-md p-6 flex flex-col justify-between border border-gray-200 hover:shadow-lg transition-shadow duration-300';
+                archiveCard.innerHTML = `
                     <div>
-                        <h4 class="text-xl font-semibold text-gray-900 mb-2">${
-                          archive.title
-                        }</h4>
-                        <p class="text-gray-700 text-sm mb-3">${
-                          archive.description
-                        }</p>
+                        <h4 class="text-xl font-semibold text-gray-900 mb-2">${archive.title}</h4>
+                        <p class="text-gray-700 text-sm mb-3">${archive.description}</p>
                         <div class="flex items-center text-gray-600 text-xs mb-1">
-                            <span class="mr-2">${getMediaTypeIcon(
-                              archive.type
-                            )}</span>
-                            <span>Tipe: ${
-                              archive.type.charAt(0).toUpperCase() +
-                              archive.type.slice(1)
-                            }</span>
+                            <span class="mr-2">${getMediaTypeIcon(archive.type)}</span>
+                            <span>Tipe: ${archive.type.charAt(0).toUpperCase() + archive.type.slice(1)}</span>
                         </div>
-                        <p class="text-gray-600 text-xs mb-1">Tanggal: ${
-                          archive.date
-                        }</p>
-                        <p class="text-gray-600 text-xs mb-3">Sumber: <a href="${
-                          archive.source
-                        }" target="_blank" class="text-blue-500 hover:underline truncate">${
-            archive.source || "N/A"
-          }</a></p>
+                        <p class="text-gray-600 text-xs mb-1">Tanggal: ${archive.date}</p>
+                        <p class="text-gray-600 text-xs mb-3 flex items-start">Sumber: <a href="${archive.source}" target="_blank" class="text-blue-500 hover:underline truncate inline-block max-w-[calc(100%-60px)] ml-1">${archive.source || 'N/A'}</a></p>
                         <div class="flex flex-wrap gap-2 mb-4">
-                            ${archive.tags
-                              .map(
-                                (tag) =>
-                                  `<span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full">${tag}</span>`
-                              )
-                              .join("")}
+                            ${archive.tags.map(tag => `<span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full">${tag}</span>`).join('')}
                         </div>
-                        <button onclick="openMediaPreview('${archive.type}', '${
-            archive.source
-          }')" class="w-full inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-500 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-200 mt-2">
+                        <button onclick="openMediaPreview('${archive.type}', '${archive.source}')" class="w-full inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-500 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-200 mt-2">
                             <i class="fas fa-eye mr-2"></i> Pratinjau Media
                         </button>
                     </div>
                     <div class="flex space-x-2 mt-4">
-                        <button onclick="editArchive('${
-                          archive.id
-                        }')" class="flex-1 inline-flex items-center justify-center px-3 py-1.5 border border-transparent text-sm font-medium rounded-md text-white bg-yellow-500 hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500 transition-all duration-200">
+                        <button onclick="editArchive('${archive.id}')" class="flex-1 inline-flex items-center justify-center px-3 py-1.5 border border-transparent text-sm font-medium rounded-md text-white bg-yellow-500 hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500 transition-all duration-200">
                             <i class="fas fa-edit mr-1"></i> Edit
                         </button>
-                        <button onclick="showDeleteConfirmation('${
-                          archive.id
-                        }')" class="flex-1 inline-flex items-center justify-center px-3 py-1.5 border border-transparent text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition-all duration-200">
+                        <button onclick="showDeleteConfirmation('${archive.id}')" class="flex-1 inline-flex items-center justify-center px-3 py-1.5 border border-transparent text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition-all duration-200">
                             <i class="fas fa-trash-alt mr-1"></i> Hapus
                         </button>
                     </div>
                 `;
-          archiveList.appendChild(archiveCard);
-        });
-      }
-
-      /**
-       * Handles adding/updating an archive.
-       * @param {Event} e - The form submission event.
-       */
-      archiveForm.addEventListener("submit", (e) => {
-        e.preventDefault();
-
-        const title = document.getElementById("title").value;
-        const description = document.getElementById("description").value;
-        const type = document.getElementById("type").value;
-        const source = document.getElementById("source").value;
-        const date = document.getElementById("date").value;
-        const tags = document
-          .getElementById("tags")
-          .value.split(",")
-          .map((tag) => tag.trim())
-          .filter((tag) => tag !== "");
-
-        // Basic validation for URL if type is video/audio/photo
-        if (
-          ["video", "audio", "photo"].includes(type) &&
-          source &&
-          !isValidUrl(source)
-        ) {
-          showToast(
-            "Sumber harus berupa URL yang valid untuk tipe media ini.",
-            "error"
-          );
-          return;
-        }
-
-        const newArchive = {
-          id: Date.now().toString(), // Unique ID based on timestamp
-          title,
-          description,
-          type,
-          source,
-          date,
-          tags,
-        };
-
-        archives.unshift(newArchive); // Add to the beginning of the array
-        saveArchives();
-        archiveForm.reset(); // Reset form
-        showPage("listPage"); // Go back to the archive list page
-        showToast("Arsip berhasil ditambahkan!", "success");
-      });
-
-      /**
-       * Shows the delete confirmation modal.
-       * @param {string} id - The ID of the archive to delete.
-       */
-      function showDeleteConfirmation(id) {
-        archiveToDeleteId = id;
-        deleteConfirmationModal.classList.remove("hidden");
-      }
-
-      // Event listener for "Cancel" button in delete confirmation modal
-      cancelDeleteButton.addEventListener("click", () => {
-        deleteConfirmationModal.classList.add("hidden");
-        archiveToDeleteId = null;
-      });
-
-      // Event listener for "Delete" button in delete confirmation modal
-      confirmDeleteButton.addEventListener("click", () => {
-        if (archiveToDeleteId) {
-          deleteArchive(archiveToDeleteId);
-          deleteConfirmationModal.classList.add("hidden");
-          archiveToDeleteId = null;
-          showToast("Arsip berhasil dihapus!", "info");
-        }
-      });
-
-      /**
-       * Deletes an archive by its ID.
-       * @param {string} id - The ID of the archive to delete.
-       */
-      function deleteArchive(id) {
-        archives = archives.filter((archive) => archive.id !== id);
-        saveArchives();
-        applyFilters(); // Re-apply filters to update the list
-      }
-
-      /**
-       * Populates the edit form and displays the edit modal.
-       * @param {string} id - The ID of the archive to edit.
-       */
-      function editArchive(id) {
-        const archive = archives.find((a) => a.id === id);
-        if (archive) {
-          document.getElementById("editId").value = archive.id;
-          document.getElementById("editTitle").value = archive.title;
-          document.getElementById("editDescription").value =
-            archive.description;
-          document.getElementById("editType").value = archive.type;
-          document.getElementById("editSource").value = archive.source;
-          document.getElementById("editDate").value = archive.date;
-          document.getElementById("editTags").value = archive.tags.join(", ");
-          editArchiveModal.classList.remove("hidden");
-        } else {
-          showToast("Arsip tidak ditemukan.", "error");
-        }
-      }
-
-      // Event listener for "Cancel" button in edit modal
-      cancelEditButton.addEventListener("click", () => {
-        editArchiveModal.classList.add("hidden");
-      });
-
-      // Event listener for edit form submission
-      editArchiveForm.addEventListener("submit", (e) => {
-        e.preventDefault();
-
-        const id = document.getElementById("editId").value;
-        const title = document.getElementById("editTitle").value;
-        const description = document.getElementById("editDescription").value;
-        const type = document.getElementById("editType").value;
-        const source = document.getElementById("editSource").value;
-        const date = document.getElementById("editDate").value;
-        const tags = document
-          .getElementById("editTags")
-          .value.split(",")
-          .map((tag) => tag.trim())
-          .filter((tag) => tag !== "");
-
-        if (
-          ["video", "audio", "photo"].includes(type) &&
-          source &&
-          !isValidUrl(source)
-        ) {
-          showToast(
-            "Sumber harus berupa URL yang valid untuk tipe media ini.",
-            "error"
-          );
-          return;
-        }
-
-        // Find the index of the archive to be updated
-        const index = archives.findIndex((a) => a.id === id);
-        if (index !== -1) {
-          archives[index] = {
-            id,
-            title,
-            description,
-            type,
-            source,
-            date,
-            tags,
-          };
-          saveArchives();
-          applyFilters(); // Re-apply filters to update the list
-          editArchiveModal.classList.add("hidden"); // Hide modal after update
-          showToast("Arsip berhasil diperbarui!", "success");
-        } else {
-          showToast("Gagal memperbarui arsip.", "error");
-        }
-      });
-
-      // --- Media Preview Logic ---
-
-      /**
-       * Opens the media preview modal with the appropriate content.
-       * @param {string} type - The media type.
-       * @param {string} source - The source URL/text.
-       */
-      function openMediaPreview(type, source) {
-        mediaContent.innerHTML =
-          '<div class="text-center text-gray-500"><i class="fas fa-spinner fa-spin text-4xl mb-4"></i><p>Memuat media...</p></div>'; // Loading indicator
-        mediaSourceText.textContent = `Sumber: ${source || "Tidak Tersedia"}`;
-
-        setTimeout(() => {
-          // Simulate loading time for visual effect
-          mediaContent.innerHTML = ""; // Clear loading indicator
-
-          if (type === "video" && source) {
-            let embedHtml = "";
-            if (source.includes("youtube.com/watch")) {
-              const videoId = source.split("v=")[1]?.split("&")[0];
-              if (videoId) {
-                embedHtml = `<iframe width="560" height="315" src="https://www.youtube.com/embed/${videoId}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="rounded-lg"></iframe>`;
-              }
-            } else if (source.match(/\.(mp4|webm|ogg)$/i)) {
-              embedHtml = `<video controls src="${source}" class="max-w-full h-auto rounded-lg"></video>`;
-            }
-            mediaContent.innerHTML =
-              embedHtml ||
-              `<p class="text-red-500">Format video tidak didukung atau URL tidak valid.</p>`;
-          } else if (
-            type === "audio" &&
-            source &&
-            source.match(/\.(mp3|wav|ogg)$/i)
-          ) {
-            mediaContent.innerHTML = `<audio controls src="${source}" class="max-w-full rounded-lg"></audio>`;
-          } else if (
-            type === "photo" &&
-            source &&
-            source.match(/\.(jpeg|jpg|gif|png|webp)$/i)
-          ) {
-            mediaContent.innerHTML = `<img src="${source}" alt="Pratinjau Gambar" class="max-w-full h-auto rounded-lg" onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/333333?text=Gambar%20Tidak%20Ditemukan';">`;
-          } else if (type === "text") {
-            mediaContent.innerHTML = `<p class="whitespace-pre-wrap">${
-              source || "Tidak ada konten teks yang disediakan."
-            }</p>`;
-          } else {
-            mediaContent.innerHTML = `<p class="text-red-500">Tipe media atau sumber tidak valid untuk pratinjau.</p>`;
-          }
-        }, 500); // 0.5 second loading
-
-        mediaPreviewModal.classList.remove("hidden");
-      }
-
-      // Event listener for closing media preview modal
-      closeMediaPreviewButton.addEventListener("click", () => {
-        mediaPreviewModal.classList.add("hidden");
-        mediaContent.innerHTML = ""; // Clear content when closing
-        mediaSourceText.textContent = "";
-      });
-
-      // --- Search and Filter Logic ---
-
-      /**
-       * Applies all active filters to the archives and updates the display.
-       */
-      function applyFilters() {
-        let tempArchives = [...archives];
-
-        // Filter by keyword
-        if (currentFilters.keyword) {
-          const keyword = currentFilters.keyword.toLowerCase();
-          tempArchives = tempArchives.filter(
-            (archive) =>
-              archive.title.toLowerCase().includes(keyword) ||
-              archive.description.toLowerCase().includes(keyword) ||
-              archive.tags.some((tag) => tag.toLowerCase().includes(keyword))
-          );
-        }
-
-        // Filter by type
-        if (currentFilters.type) {
-          tempArchives = tempArchives.filter(
-            (archive) => archive.type === currentFilters.type
-          );
-        }
-
-        // Filter by date
-        if (currentFilters.date) {
-          tempArchives = tempArchives.filter(
-            (archive) => archive.date === currentFilters.date
-          );
-        }
-
-        // Filter by tags (all selected tags must be present)
-        if (currentFilters.tags.length > 0) {
-          tempArchives = tempArchives.filter((archive) =>
-            currentFilters.tags.every((filterTag) =>
-              archive.tags.some(
-                (archiveTag) =>
-                  archiveTag.toLowerCase() === filterTag.toLowerCase()
-              )
-            )
-          );
-        }
-
-        filteredArchives = tempArchives;
-        renderArchives();
-        updateStatistics();
-        renderTagsFilter(); // Re-render tags filter to reflect available tags in filtered list
-      }
-
-      // Event listeners for filter inputs
-      searchKeyword.addEventListener("input", (e) => {
-        currentFilters.keyword = e.target.value;
-        applyFilters();
-      });
-      filterType.addEventListener("change", (e) => {
-        currentFilters.type = e.target.value;
-        applyFilters();
-      });
-      filterDate.addEventListener("change", (e) => {
-        currentFilters.date = e.target.value;
-        applyFilters();
-      });
-
-      // Reset Filters Button
-      resetFiltersButton.addEventListener("click", () => {
-        searchKeyword.value = "";
-        filterType.value = "";
-        filterDate.value = "";
-        currentFilters = { keyword: "", type: "", date: "", tags: [] }; // Reset all filters
-        applyFilters();
-        showToast("Filter direset!", "info");
-      });
-
-      /**
-       * Renders clickable tags for filtering.
-       */
-      function renderTagsFilter() {
-        tagsFilterContainer.innerHTML =
-          '<span class="text-sm font-medium text-gray-700 mr-2">Filter Tag:</span>';
-        const allTags = new Set();
-        archives.forEach((archive) => {
-          // Get all tags from ALL archives, not just filtered ones
-          archive.tags.forEach((tag) => allTags.add(tag.toLowerCase()));
-        });
-
-        Array.from(allTags)
-          .sort()
-          .forEach((tag) => {
-            const tagSpan = document.createElement("span");
-            tagSpan.className = `cursor-pointer bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full hover:bg-blue-200 transition-colors duration-200 ${
-              currentFilters.tags.includes(tag) ? "ring-2 ring-blue-500" : ""
-            }`;
-            tagSpan.textContent = tag;
-            tagSpan.addEventListener("click", () => {
-              const index = currentFilters.tags.indexOf(tag);
-              if (index > -1) {
-                currentFilters.tags.splice(index, 1); // Remove tag if already selected
-              } else {
-                currentFilters.tags.push(tag); // Add tag if not selected
-              }
-              applyFilters();
+                archiveList.appendChild(archiveCard);
             });
-            tagsFilterContainer.appendChild(tagSpan);
-          });
-        if (allTags.size === 0) {
-          tagsFilterContainer.innerHTML =
-            '<span class="text-sm font-medium text-gray-500">Tidak ada tag tersedia.</span>';
-        }
-      }
-
-      // --- Statistics Logic ---
-
-      /**
-       * Updates the statistics displayed on the page.
-       */
-      function updateStatistics() {
-        totalArchives.textContent = archives.length;
-        videoCount.textContent = archives.filter(
-          (a) => a.type === "video"
-        ).length;
-        audioCount.textContent = archives.filter(
-          (a) => a.type === "audio"
-        ).length;
-        photoCount.textContent = archives.filter(
-          (a) => a.type === "photo"
-        ).length;
-        textCount.textContent = archives.filter(
-          (a) => a.type === "text"
-        ).length;
-
-        const allUniqueTags = new Set();
-        archives.forEach((archive) => {
-          archive.tags.forEach((tag) => allUniqueTags.add(tag.toLowerCase()));
-        });
-        uniqueTagsCount.textContent = allUniqueTags.size;
-      }
-
-      // --- Import/Export Data Logic ---
-
-      /**
-       * Exports archive data to a JSON file.
-       */
-      exportDataButton.addEventListener("click", () => {
-        const dataStr = JSON.stringify(archives, null, 2); // Pretty print JSON
-        const blob = new Blob([dataStr], { type: "application/json" });
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement("a");
-        a.href = url;
-        a.download = "arsip_kabinet_gemuk_prabowo.json";
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-        URL.revokeObjectURL(url);
-        showToast("Data berhasil diekspor!", "success");
-      });
-
-      /**
-       * Imports archive data from a JSON file.
-       */
-      importFileButton.addEventListener("change", (event) => {
-        const file = event.target.files[0];
-        if (!file) {
-          return;
         }
 
-        if (file.type !== "application/json") {
-          showToast("Hanya file JSON yang diizinkan.", "error");
-          return;
-        }
+        /**
+         * Handles adding/updating an archive.
+         * @param {Event} e - The form submission event.
+         */
+        archiveForm.addEventListener('submit', (e) => {
+            e.preventDefault();
 
-        const reader = new FileReader();
-        reader.onload = (e) => {
-          try {
-            const importedData = JSON.parse(e.target.result);
-            if (
-              Array.isArray(importedData) &&
-              importedData.every(
-                (item) =>
-                  typeof item.id === "string" && typeof item.title === "string"
-              )
-            ) {
-              // Merge or replace existing data. For simplicity, let's replace for now.
-              // For merging, you'd need more complex ID collision handling.
-              archives = importedData;
-              saveArchives();
-              applyFilters();
-              showToast("Data berhasil diimpor!", "success");
-              importFileButton.value = ""; // Clear file input
-            } else {
-              showToast(
-                "Format JSON tidak valid. Pastikan ini adalah array arsip.",
-                "error"
-              );
+            const title = document.getElementById('title').value;
+            const description = document.getElementById('description').value;
+            const type = document.getElementById('type').value;
+            const source = document.getElementById('source').value;
+            const date = document.getElementById('date').value;
+            const tags = document.getElementById('tags').value.split(',').map(tag => tag.trim()).filter(tag => tag !== '');
+
+            // Basic validation for URL if type is video/audio/photo
+            if (['video', 'audio', 'photo'].includes(type) && source && !isValidUrl(source)) {
+                showToast('Sumber harus berupa URL yang valid untuk tipe media ini.', 'error');
+                return;
             }
-          } catch (error) {
-            console.error("Error parsing JSON:", error);
-            showToast(
-              "Gagal memproses file JSON. Error: " + error.message,
-              "error"
-            );
-          }
-        };
-        reader.onerror = () => {
-          showToast("Gagal membaca file.", "error");
-        };
-        reader.readAsText(file);
-      });
 
-      // --- Form Validation Helper ---
-      function isValidUrl(string) {
-        try {
-          new URL(string);
-          return true;
-        } catch (e) {
-          return false;
+            const newArchive = {
+                id: Date.now().toString(), // Unique ID based on timestamp
+                title,
+                description,
+                type,
+                source,
+                date,
+                tags
+            };
+
+            archives.unshift(newArchive); // Add to the beginning of the array
+            saveArchives();
+            archiveForm.reset(); // Reset form
+            showPage('listPage'); // Go back to the archive list page
+            showToast('Arsip berhasil ditambahkan!', 'success');
+        });
+
+        /**
+         * Shows the delete confirmation modal.
+         * @param {string} id - The ID of the archive to delete.
+         */
+        function showDeleteConfirmation(id) {
+            archiveToDeleteId = id;
+            deleteConfirmationModal.classList.remove('hidden');
         }
-      }
 
-      // --- Initialization ---
-      document.addEventListener("DOMContentLoaded", () => {
-        archives = getArchives();
-        applyDarkModePreference(); // Apply dark mode preference on load
-        applyFilters(); // Apply initial filters (which will also render archives)
-        updateStatistics();
-        renderTagsFilter(); // Initial render of tags filter
-        showPage("listPage"); // Show archive list page by default
-      });
+        // Event listener for "Cancel" button in delete confirmation modal
+        cancelDeleteButton.addEventListener('click', () => {
+            deleteConfirmationModal.classList.add('hidden');
+            archiveToDeleteId = null;
+        });
 
-      // Event listeners for UI elements
-      mobileMenuButton.addEventListener("click", toggleMobileMenu);
-      darkModeToggle.addEventListener("click", toggleDarkMode);
+        // Event listener for "Delete" button in delete confirmation modal
+        confirmDeleteButton.addEventListener('click', () => {
+            if (archiveToDeleteId) {
+                deleteArchive(archiveToDeleteId);
+                deleteConfirmationModal.classList.add('hidden');
+                archiveToDeleteId = null;
+                showToast('Arsip berhasil dihapus!', 'info');
+            }
+        });
 
-      // Data dummy untuk simulasi jika Local Storage kosong (opsional, bisa dihapus)
-      if (getArchives().length === 0) {
-        archives = [
-          {
-            id: "1",
-            title: "Wacana 40 Kementerian di Kabinet Prabowo-Gibran",
-            description:
-              "Diskusi publik dan analisis media terkait kemungkinan jumlah kementerian yang sangat banyak dalam kabinet pemerintahan Prabowo-Gibran, memicu perdebatan tentang efisiensi dan beban anggaran.",
-            type: "text",
-            source:
-              "https://news.detik.com/berita/d-7360256/prabowo-gibran-dan-wacana-kabinet-40-kementerian",
-            date: "2024-05-27",
-            tags: [
-              "kabinet",
-              "prabowo",
-              "gibran",
-              "menteri",
-              "politik",
-              "pemerintahan",
-            ],
-          },
-          {
-            id: "2",
-            title: "Analisis Pengamat: Kabinet Gemuk, Efektifkah?",
-            description:
-              "Kumpulan opini dan analisis dari pengamat politik mengenai dampak dan efektivitas kabinet dengan jumlah menteri yang besar terhadap kinerja pemerintahan dan stabilitas politik.",
-            type: "video",
-            source: "https://www.youtube.com/embed/contohvideo1", // Contoh YouTube embed URL
-            date: "2024-06-01",
-            tags: [
-              "analisis",
-              "pengamat",
-              "efisiensi",
-              "pemerintahan",
-              "kebijakan",
-            ],
-          },
-          {
-            id: "3",
-            title: "Implikasi Anggaran Kabinet Jumbo",
-            description:
-              "Artikel yang membahas potensi peningkatan anggaran negara dan tantangan fiskal akibat penambahan jumlah kementerian dan posisi menteri dalam struktur kabinet baru.",
-            type: "text",
-            source:
-              "https://ekonomi.kompas.com/read/2024/06/05/100000126/kabinet-gemuk-prabowo-gibran-dan-tantangan-anggaran-negara",
-            date: "2024-06-05",
-            tags: ["ekonomi", "anggaran", "birokrasi", "fiskal"],
-          },
-          {
-            id: "4",
-            title: "Debat Publik: Pro-Kontra Jumlah Kementerian",
-            description:
-              "Rekaman audio debat antara politisi dan pakar mengenai argumen yang mendukung dan menentang rencana penambahan kementerian, mencakup perspektif dari berbagai pihak.",
-            type: "audio",
-            source:
-              "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3", // Contoh MP3 URL
-            date: "2024-05-20",
-            tags: ["legislasi", "perdebatan", "opini_publik", "transparansi"],
-          },
-          {
-            id: "5",
-            title: "Sketsa Prediksi Wajah Kabinet Prabowo",
-            description:
-              "Infografis atau gambar yang mencoba memvisualisasikan struktur kabinet dengan 40 kementerian, berdasarkan bocoran atau analisis dari media dan lingkaran politik.",
-            type: "photo",
-            source:
-              "https://placehold.co/800x450/FF4500/FFFFFF?text=Prediksi%20Kabinet", // Placeholder image with orange background
-            date: "2024-05-25",
-            tags: ["infografis", "struktur", "visual", "prediksi"],
-          },
-          {
-            id: "6",
-            title: "Respon Partai Koalisi Terhadap Isu Kabinet",
-            description:
-              "Berita dan analisis mengenai bagaimana partai-partai koalisi Prabowo-Gibran menanggapi dan menyikapi wacana pembentukan kabinet gemuk, termasuk dukungan dan keberatan yang muncul.",
-            type: "text",
-            source:
-              "https://www.cnnindonesia.com/politik/20240610123456-32-contoh-link-partai-koalisi",
-            date: "2024-06-10",
-            tags: ["koalisi", "partai", "politik", "reaksi"],
-          },
-          {
-            id: "7",
-            title: "Podcast Khusus: Dinamika Politik Kabinet Baru",
-            description:
-              "Episode podcast yang membahas secara mendalam dinamika politik di balik pembentukan kabinet baru, melibatkan spekulasi dan analisis tentang nama-nama potensial.",
-            type: "audio",
-            source:
-              "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3", // Contoh MP3 URL
-            date: "2024-06-15",
-            tags: ["podcast", "analisis", "dinamika", "politik"],
-          },
-          {
-            id: "8",
-            title: "Karikatur: Beban Kabinet Gemuk",
-            description:
-              "Koleksi karikatur satir yang menggambarkan isu kabinet gemuk dan berbagai persepsi publik terhadapnya.",
-            type: "photo",
-            source:
-              "https://placehold.co/800x450/4CAF50/FFFFFF?text=Karikatur%20Kabinet", // Placeholder image with green background
-            date: "2024-06-03",
-            tags: ["karikatur", "satir", "humor", "publik"],
-          },
-          {
-            id: "9",
-            title: "Perbandingan Kabinet Indonesia Sebelumnya",
-            description:
-              "Analisis komparatif antara usulan kabinet Prabowo dengan struktur kabinet presiden-presiden Indonesia sebelumnya, menyoroti tren dan perbedaannya.",
-            type: "text",
-            source:
-              "https://www.bbc.com/indonesia/berita-indonesia-contoh-link-perbandingan-kabinet",
-            date: "2024-06-08",
-            tags: ["sejarah", "perbandingan", "pemerintahan", "analisis"],
-          },
-        ];
-        saveArchives(); // Simpan data dummy ke Local Storage
-      }
+        /**
+         * Deletes an archive by its ID.
+         * @param {string} id - The ID of the archive to delete.
+         */
+        function deleteArchive(id) {
+            archives = archives.filter(archive => archive.id !== id);
+            saveArchives();
+            applyFilters(); // Re-apply filters to update the list
+        }
+
+        /**
+         * Populates the edit form and displays the edit modal.
+         * @param {string} id - The ID of the archive to edit.
+         */
+        function editArchive(id) {
+            const archive = archives.find(a => a.id === id);
+            if (archive) {
+                document.getElementById('editId').value = archive.id;
+                document.getElementById('editTitle').value = archive.title;
+                document.getElementById('editDescription').value = archive.description;
+                document.getElementById('editType').value = archive.type;
+                document.getElementById('editSource').value = archive.source;
+                document.getElementById('editDate').value = archive.date;
+                document.getElementById('editTags').value = archive.tags.join(', ');
+                editArchiveModal.classList.remove('hidden');
+            } else {
+                showToast('Arsip tidak ditemukan.', 'error');
+            }
+        }
+
+        // Event listener for "Cancel" button in edit modal
+        cancelEditButton.addEventListener('click', () => {
+            editArchiveModal.classList.add('hidden');
+        });
+
+        // Event listener for edit form submission
+        editArchiveForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const id = document.getElementById('editId').value;
+            const title = document.getElementById('editTitle').value;
+            const description = document.getElementById('editDescription').value;
+            const type = document.getElementById('editType').value;
+            const source = document.getElementById('editSource').value;
+            const date = document.getElementById('editDate').value;
+            const tags = document.getElementById('editTags').value.split(',').map(tag => tag.trim()).filter(tag => tag !== '');
+
+            if (['video', 'audio', 'photo'].includes(type) && source && !isValidUrl(source)) {
+                showToast('Sumber harus berupa URL yang valid untuk tipe media ini.', 'error');
+                return;
+            }
+
+            // Find the index of the archive to be updated
+            const index = archives.findIndex(a => a.id === id);
+            if (index !== -1) {
+                archives[index] = { id, title, description, type, source, date, tags };
+                saveArchives();
+                applyFilters(); // Re-apply filters to update the list
+                editArchiveModal.classList.add('hidden'); // Hide modal after update
+                showToast('Arsip berhasil diperbarui!', 'success');
+            } else {
+                showToast('Gagal memperbarui arsip.', 'error');
+            }
+        });
+
+        // --- Media Preview Logic ---
+
+        /**
+         * Opens the media preview modal with the appropriate content.
+         * @param {string} type - The media type.
+         * @param {string} source - The source URL/text.
+         */
+        function openMediaPreview(type, source) {
+            mediaContent.innerHTML = '<div class="text-center text-gray-500"><i class="fas fa-spinner fa-spin text-4xl mb-4"></i><p>Memuat media...</p></div>'; // Loading indicator
+            mediaSourceText.textContent = `Sumber: ${source || 'Tidak Tersedia'}`;
+
+            setTimeout(() => { // Simulate loading time for visual effect
+                mediaContent.innerHTML = ''; // Clear loading indicator
+
+                if (type === 'video' && source) {
+                    let embedHtml = '';
+                    if (source.includes('youtube.com/watch')) {
+                        const videoId = source.split('v=')[1]?.split('&')[0];
+                        if (videoId) {
+                            embedHtml = `<iframe width="560" height="315" src="https://www.youtube.com/embed/${videoId}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="rounded-lg"></iframe>`;
+                        }
+                    } else if (source.match(/\.(mp4|webm|ogg)$/i)) {
+                        embedHtml = `<video controls src="${source}" class="max-w-full h-auto rounded-lg"></video>`;
+                    }
+                    mediaContent.innerHTML = embedHtml || `<p class="text-red-500">Format video tidak didukung atau URL tidak valid.</p>`;
+                } else if (type === 'audio' && source && source.match(/\.(mp3|wav|ogg)$/i)) {
+                    mediaContent.innerHTML = `<audio controls src="${source}" class="max-w-full rounded-lg"></audio>`;
+                } else if (type === 'photo' && source && source.match(/\.(jpeg|jpg|gif|png|webp)$/i)) {
+                    mediaContent.innerHTML = `<img src="${source}" alt="Pratinjau Gambar" class="max-w-full h-auto rounded-lg" onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/333333?text=Gambar%20Tidak%20Ditemukan';">`;
+                } else if (type === 'text') {
+                    mediaContent.innerHTML = `<p class="whitespace-pre-wrap">${source || 'Tidak ada konten teks yang disediakan.'}</p>`;
+                } else {
+                    mediaContent.innerHTML = `<p class="text-red-500">Tipe media atau sumber tidak valid untuk pratinjau.</p>`;
+                }
+            }, 500); // 0.5 second loading
+
+            mediaPreviewModal.classList.remove('hidden');
+        }
+
+        // Event listener for closing media preview modal
+        closeMediaPreviewButton.addEventListener('click', () => {
+            mediaPreviewModal.classList.add('hidden');
+            mediaContent.innerHTML = ''; // Clear content when closing
+            mediaSourceText.textContent = '';
+        });
+
+        // --- Search and Filter Logic ---
+
+        /**
+         * Applies all active filters to the archives and updates the display.
+         */
+        function applyFilters() {
+            let tempArchives = [...archives];
+
+            // Filter by keyword
+            if (currentFilters.keyword) {
+                const keyword = currentFilters.keyword.toLowerCase();
+                tempArchives = tempArchives.filter(archive =>
+                    archive.title.toLowerCase().includes(keyword) ||
+                    archive.description.toLowerCase().includes(keyword) ||
+                    archive.tags.some(tag => tag.toLowerCase().includes(keyword))
+                );
+            }
+
+            // Filter by type
+            if (currentFilters.type) {
+                tempArchives = tempArchives.filter(archive => archive.type === currentFilters.type);
+            }
+
+            // Filter by date
+            if (currentFilters.date) {
+                tempArchives = tempArchives.filter(archive => archive.date === currentFilters.date);
+            }
+
+            // Filter by tags (all selected tags must be present)
+            if (currentFilters.tags.length > 0) {
+                tempArchives = tempArchives.filter(archive =>
+                    currentFilters.tags.every(filterTag =>
+                        archive.tags.some(archiveTag => archiveTag.toLowerCase() === filterTag.toLowerCase())
+                    )
+                );
+            }
+
+            filteredArchives = tempArchives;
+            renderArchives();
+            updateStatistics();
+            renderTagsFilter(); // Re-render tags filter to reflect available tags in filtered list
+        }
+
+        // Event listeners for filter inputs
+        searchKeyword.addEventListener('input', (e) => {
+            currentFilters.keyword = e.target.value;
+            applyFilters();
+        });
+        filterType.addEventListener('change', (e) => {
+            currentFilters.type = e.target.value;
+            applyFilters();
+        });
+        filterDate.addEventListener('change', (e) => {
+            currentFilters.date = e.target.value;
+            applyFilters();
+        });
+
+        // Reset Filters Button
+        resetFiltersButton.addEventListener('click', () => {
+            searchKeyword.value = '';
+            filterType.value = '';
+            filterDate.value = '';
+            currentFilters = { keyword: '', type: '', date: '', tags: [] }; // Reset all filters
+            applyFilters();
+            showToast('Filter direset!', 'info');
+        });
+
+        /**
+         * Renders clickable tags for filtering.
+         */
+        function renderTagsFilter() {
+            tagsFilterContainer.innerHTML = '<span class="text-sm font-medium text-gray-700 mr-2">Filter Tag:</span>';
+            const allTags = new Set();
+            archives.forEach(archive => { // Get all tags from ALL archives, not just filtered ones
+                archive.tags.forEach(tag => allTags.add(tag.toLowerCase()));
+            });
+
+            Array.from(allTags).sort().forEach(tag => {
+                const tagSpan = document.createElement('span');
+                tagSpan.className = `cursor-pointer bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full hover:bg-blue-200 transition-colors duration-200 ${currentFilters.tags.includes(tag) ? 'ring-2 ring-blue-500' : ''}`;
+                tagSpan.textContent = tag;
+                tagSpan.addEventListener('click', () => {
+                    const index = currentFilters.tags.indexOf(tag);
+                    if (index > -1) {
+                        currentFilters.tags.splice(index, 1); // Remove tag if already selected
+                    } else {
+                        currentFilters.tags.push(tag); // Add tag if not selected
+                    }
+                    applyFilters();
+                });
+                tagsFilterContainer.appendChild(tagSpan);
+            });
+            if (allTags.size === 0) {
+                tagsFilterContainer.innerHTML = '<span class="text-sm font-medium text-gray-500">Tidak ada tag tersedia.</span>';
+            }
+        }
+
+        // --- Statistics Logic ---
+
+        /**
+         * Updates the statistics displayed on the page.
+         */
+        function updateStatistics() {
+            totalArchives.textContent = archives.length;
+            videoCount.textContent = archives.filter(a => a.type === 'video').length;
+            audioCount.textContent = archives.filter(a => a.type === 'audio').length;
+            photoCount.textContent = archives.filter(a => a.type === 'photo').length;
+            textCount.textContent = archives.filter(a => a.type === 'text').length;
+
+            const allUniqueTags = new Set();
+            archives.forEach(archive => {
+                archive.tags.forEach(tag => allUniqueTags.add(tag.toLowerCase()));
+            });
+            uniqueTagsCount.textContent = allUniqueTags.size;
+        }
+
+        // --- Import/Export Data Logic ---
+
+        /**
+         * Exports archive data to a JSON file.
+         */
+        exportDataButton.addEventListener('click', () => {
+            const dataStr = JSON.stringify(archives, null, 2); // Pretty print JSON
+            const blob = new Blob([dataStr], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'arsip_kabinet_gemuk_prabowo.json';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            showToast('Data berhasil diekspor!', 'success');
+        });
+
+        /**
+         * Imports archive data from a JSON file.
+         */
+        importFileButton.addEventListener('change', (event) => {
+            const file = event.target.files[0];
+            if (!file) {
+                return;
+            }
+
+            if (file.type !== 'application/json') {
+                showToast('Hanya file JSON yang diizinkan.', 'error');
+                return;
+            }
+
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                try {
+                    const importedData = JSON.parse(e.target.result);
+                    if (Array.isArray(importedData) && importedData.every(item => typeof item.id === 'string' && typeof item.title === 'string')) {
+                        // Merge or replace existing data. For simplicity, let's replace for now.
+                        // For merging, you'd need more complex ID collision handling.
+                        archives = importedData;
+                        saveArchives();
+                        applyFilters();
+                        showToast('Data berhasil diimpor!', 'success');
+                        importFileButton.value = ''; // Clear file input
+                    } else {
+                        showToast('Format JSON tidak valid. Pastikan ini adalah array arsip.', 'error');
+                    }
+                } catch (error) {
+                    console.error('Error parsing JSON:', error);
+                    showToast('Gagal memproses file JSON. Error: ' + error.message, 'error');
+                }
+            };
+            reader.onerror = () => {
+                showToast('Gagal membaca file.', 'error');
+            };
+            reader.readAsText(file);
+        });
+
+        // --- Form Validation Helper ---
+        function isValidUrl(string) {
+            try {
+                new URL(string);
+                return true;
+            } catch (e) {
+                return false;
+            }
+        }
+
+
+        // --- Initialization ---
+        document.addEventListener('DOMContentLoaded', () => {
+            archives = getArchives();
+            applyDarkModePreference(); // Apply dark mode preference on load
+            applyFilters(); // Apply initial filters (which will also render archives)
+            updateStatistics();
+            renderTagsFilter(); // Initial render of tags filter
+            showPage('listPage'); // Show archive list page by default
+        });
+
+        // Event listeners for UI elements
+        mobileMenuButton.addEventListener('click', toggleMobileMenu);
+        darkModeToggle.addEventListener('click', toggleDarkMode);
+
+        // Data dummy untuk simulasi jika Local Storage kosong (opsional, bisa dihapus)
+        if (getArchives().length === 0) {
+            archives = [
+                {
+                    id: '1',
+                    title: 'Wacana 40 Kementerian di Kabinet Prabowo-Gibran',
+                    description: 'Diskusi publik dan analisis media terkait kemungkinan jumlah kementerian yang sangat banyak dalam kabinet pemerintahan Prabowo-Gibran, memicu perdebatan tentang efisiensi dan beban anggaran.',
+                    type: 'text',
+                    source: 'https://news.detik.com/berita/d-7360256/prabowo-gibran-dan-wacana-kabinet-40-kementerian',
+                    date: '2024-05-27',
+                    tags: ['kabinet', 'prabowo', 'gibran', 'menteri', 'politik', 'pemerintahan']
+                },
+                {
+                    id: '2',
+                    title: 'Analisis Pengamat: Kabinet Gemuk, Efektifkah?',
+                    description: 'Kumpulan opini dan analisis dari pengamat politik mengenai dampak dan efektivitas kabinet dengan jumlah menteri yang besar terhadap kinerja pemerintahan dan stabilitas politik.',
+                    type: 'video',
+                    source: 'https://www.youtube.com/embed/contohvideo1', // Contoh YouTube embed URL
+                    date: '2024-06-01',
+                    tags: ['analisis', 'pengamat', 'efisiensi', 'pemerintahan', 'kebijakan']
+                },
+                {
+                    id: '3',
+                    title: 'Implikasi Anggaran Kabinet Jumbo',
+                    description: 'Artikel yang membahas potensi peningkatan anggaran negara dan tantangan fiskal akibat penambahan jumlah kementerian dan posisi menteri dalam struktur kabinet baru.',
+                    type: 'text',
+                    source: 'https://ekonomi.kompas.com/read/2024/06/05/100000126/kabinet-gemuk-prabowo-gibran-dan-tantangan-anggaran-negara',
+                    date: '2024-06-05',
+                    tags: ['ekonomi', 'anggaran', 'birokrasi', 'fiskal']
+                },
+                {
+                    id: '4',
+                    title: 'Debat Publik: Pro-Kontra Jumlah Kementerian',
+                    description: 'Rekaman audio debat antara politisi dan pakar mengenai argumen yang mendukung dan menentang rencana penambahan kementerian, mencakup perspektif dari berbagai pihak.',
+                    type: 'audio',
+                    source: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3', // Contoh MP3 URL
+                    date: '2024-05-20',
+                    tags: ['legislasi', 'perdebatan', 'opini_publik', 'transparansi']
+                },
+                {
+                    id: '5',
+                    title: 'Sketsa Prediksi Wajah Kabinet Prabowo',
+                    description: 'Infografis atau gambar yang mencoba memvisualisasikan struktur kabinet dengan 40 kementerian, berdasarkan bocoran atau analisis dari media dan lingkaran politik.',
+                    type: 'photo',
+                    source: 'https://placehold.co/800x450/FF4500/FFFFFF?text=Prediksi%20Kabinet', // Placeholder image with orange background
+                    date: '2024-05-25',
+                    tags: ['infografis', 'struktur', 'visual', 'prediksi']
+                },
+                {
+                    id: '6',
+                    title: 'Respon Partai Koalisi Terhadap Isu Kabinet',
+                    description: 'Berita dan analisis mengenai bagaimana partai-partai koalisi Prabowo-Gibran menanggapi dan menyikapi wacana pembentukan kabinet gemuk, termasuk dukungan dan keberatan yang muncul.',
+                    type: 'text',
+                    source: 'https://www.cnnindonesia.com/politik/20240610123456-32-contoh-link-partai-koalisi',
+                    date: '2024-06-10',
+                    tags: ['koalisi', 'partai', 'politik', 'reaksi']
+                },
+                {
+                    id: '7',
+                    title: 'Podcast Khusus: Dinamika Politik Kabinet Baru',
+                    description: 'Episode podcast yang membahas secara mendalam dinamika politik di balik pembentukan kabinet baru, melibatkan spekulasi dan analisis tentang nama-nama potensial.',
+                    type: 'audio',
+                    source: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3', // Contoh MP3 URL
+                    date: '2024-06-15',
+                    tags: ['podcast', 'analisis', 'dinamika', 'politik']
+                },
+                {
+                    id: '8',
+                    title: 'Karikatur: Beban Kabinet Gemuk',
+                    description: 'Koleksi karikatur satir yang menggambarkan isu kabinet gemuk dan berbagai persepsi publik terhadapnya.',
+                    type: 'photo',
+                    source: 'https://placehold.co/800x450/4CAF50/FFFFFF?text=Karikatur%20Kabinet', // Placeholder image with green background
+                    date: '2024-06-03',
+                    tags: ['karikatur', 'satir', 'humor', 'publik']
+                },
+                {
+                    id: '9',
+                    title: 'Perbandingan Kabinet Indonesia Sebelumnya',
+                    description: 'Analisis komparatif antara usulan kabinet Prabowo dengan struktur kabinet presiden-presiden Indonesia sebelumnya, menyoroti tren dan perbedaannya.',
+                    type: 'text',
+                    source: 'https://www.bbc.com/indonesia/berita-indonesia-contoh-link-perbandingan-kabinet',
+                    date: '2024-06-08',
+                    tags: ['sejarah', 'perbandingan', 'pemerintahan', 'analisis']
+                }
+            ];
+            saveArchives(); // Simpan data dummy ke Local Storage
+        }
     </script>
-  </body>
+</body>
 </html>
